@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Articles;
 use App\Models\LandingPage;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class LandingPageController extends Controller
      */
     public function index()
     {
-        return view('/landingpage/landingpage');
+        $data = Articles::paginate(3);
+        return view('/landingpage/landingpage', compact('data'));
     }
 
     /**

@@ -84,6 +84,7 @@
                         <a href="#"><span class="icon-facebook text-teal"></span></a>
                         <a href="#"><span class="icon-twitter text-success"></span></a>
                         <a href="#"><span class="icon-linkedin text-yellow"></span></a>
+                        <a href="{{ route('register') }}" class="btn btn-primary">Sign in</a>
                     </div>
                 </div>
             </div>
