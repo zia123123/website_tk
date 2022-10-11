@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Articles;
+use App\Models\Visimisi;
 use Illuminate\Http\Request;
 
-class ArticlesController extends Controller
+class VisimisiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Articles::all();
-        return view('articles.index', [
-            'articles' => $articles
+        $visimisi = Visimisi::all();
+        return view('visimisi.index', [
+            'visimisi' => $visimisi
         ]);
     }
 
@@ -27,7 +27,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        return view('visimisi.create');
     }
 
     /**
@@ -41,23 +41,17 @@ class ArticlesController extends Controller
         $request->validate([
             'judul'=>'required',
             'content'=> 'required',
-            'filename' => 'required'
+          
           ]);
-          $filename = $request->file('filename');
-          $name = $filename->getClientOriginalName();
-          $dist = 'uploads/';
-          $nameExp = explode('.', $name);
-          $nameActExp = strtolower(end($nameExp));
-          $newName = uniqid('', true).'.'.$nameActExp;
-          $upload = $filename->move($dist, $newName);
+       
 
-          $article = new Articles([
+          $visimisi = new Visimisi([
             'judul' => $request->get('judul'),
             'content'=> $request->get('content'),
-            'filename' => $dist.$newName
+        
           ]);
-          $article->save();
-        return redirect()->route('articles.index')
+          $visimisi->save();
+        return redirect()->route('visimisi.index')
             ->with('success_message', 'Berhasil menambah Data baru');
 
     }
@@ -81,11 +75,11 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        $article = Articles::find($id);
-        if (!$article) return redirect()->route('articles.index')
+        $visimisi = Visimisi::find($id);
+        if (!$visimisi) return redirect()->route('visimisi.index')
             ->with('error_message', 'User dengan id '.$id.' tidak ditemukan');
-        return view('articles.edit', [
-            'article' => $article
+        return view('visimisi.edit', [
+            'visimisi' => $visimisi
         ]);
     }
 
@@ -101,22 +95,13 @@ class ArticlesController extends Controller
         $request->validate([
             'judul'=>'required',
             'content'=> 'required',
-            'filename' => 'required'
           ]);
 
-        $filename = $request->file('filename');
-        $name = $filename->getClientOriginalName();
-        $dist = 'uploads/';
-        $nameExp = explode('.', $name);
-        $nameActExp = strtolower(end($nameExp));
-        $newName = uniqid('', true).'.'.$nameActExp;
-        $upload = $filename->move($dist, $newName);
-          $article = Articles::find($id);
-          $article->judul = $request->get('judul');
-          $article->content = $request->get('content');
-          $article->filename = $dist.$newName;
-          $article->save();
-        return redirect()->route('articles.index')
+          $visimisi = Visimisi::find($id);
+          $visimisi->judul = $request->get('judul');
+          $visimisi->content = $request->get('content');
+          $visimisi->save();
+        return redirect()->route('visimisi.index')
             ->with('success_message', 'Berhasil mengubah Data');
     }
 
@@ -128,9 +113,9 @@ class ArticlesController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $article = Articles::find($id);
-        $article->delete();
-        return redirect()->route('articles.index')
-            ->with('success_message', 'Berhasil menghapus user');
+        $visimisi = Visimisi::find($id);
+        $visimisi->delete();
+        return redirect()->route('visimisi.index')
+            ->with('success_message', 'Berhasil menghapus Data');
     }
 }

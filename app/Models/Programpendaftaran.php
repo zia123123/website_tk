@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Program extends Model
+class Programpendaftaran extends Model
 {
     protected $fillable = [
-        'namaprogram',
-        'deskripsi',
-        'filename'
+        'judul',
+        'content',
+        'filename',
+        'link'
       ];
 }

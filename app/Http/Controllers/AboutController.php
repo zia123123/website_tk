@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Articles;
+use App\Models\About;
 use Illuminate\Http\Request;
 
-class ArticlesController extends Controller
+class AboutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Articles::all();
-        return view('articles.index', [
-            'articles' => $articles
+        $abouts = About::all();
+        return view('about.index', [
+            'abouts' => $abouts
         ]);
     }
 
@@ -27,7 +27,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        return view('about.create');
     }
 
     /**
@@ -51,13 +51,13 @@ class ArticlesController extends Controller
           $newName = uniqid('', true).'.'.$nameActExp;
           $upload = $filename->move($dist, $newName);
 
-          $article = new Articles([
+          $abouts = new About([
             'judul' => $request->get('judul'),
             'content'=> $request->get('content'),
             'filename' => $dist.$newName
           ]);
-          $article->save();
-        return redirect()->route('articles.index')
+          $abouts->save();
+        return redirect()->route('about.index')
             ->with('success_message', 'Berhasil menambah Data baru');
 
     }
@@ -81,11 +81,11 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        $article = Articles::find($id);
-        if (!$article) return redirect()->route('articles.index')
+        $abouts = About::find($id);
+        if (!$abouts) return redirect()->route('about.index')
             ->with('error_message', 'User dengan id '.$id.' tidak ditemukan');
-        return view('articles.edit', [
-            'article' => $article
+        return view('about.edit', [
+            'abouts' => $abouts
         ]);
     }
 
@@ -111,12 +111,12 @@ class ArticlesController extends Controller
         $nameActExp = strtolower(end($nameExp));
         $newName = uniqid('', true).'.'.$nameActExp;
         $upload = $filename->move($dist, $newName);
-          $article = Articles::find($id);
-          $article->judul = $request->get('judul');
-          $article->content = $request->get('content');
-          $article->filename = $dist.$newName;
-          $article->save();
-        return redirect()->route('articles.index')
+          $abouts = About::find($id);
+          $abouts->judul = $request->get('judul');
+          $abouts->content = $request->get('content');
+          $abouts->filename = $dist.$newName;
+          $abouts->save();
+        return redirect()->route('about.index')
             ->with('success_message', 'Berhasil mengubah Data');
     }
 
@@ -128,9 +128,9 @@ class ArticlesController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $article = Articles::find($id);
-        $article->delete();
-        return redirect()->route('articles.index')
+        $abouts = About::find($id);
+        $abouts->delete();
+        return redirect()->route('about.index')
             ->with('success_message', 'Berhasil menghapus user');
     }
 }

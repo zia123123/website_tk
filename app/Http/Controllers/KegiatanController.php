@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Articles;
+use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 
-class ArticlesController extends Controller
+class KegiatanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Articles::all();
-        return view('articles.index', [
-            'articles' => $articles
+        $kegiatan = Kegiatan::all();
+        return view('kegiatan.index', [
+            'kegiatan' => $kegiatan
         ]);
     }
 
@@ -27,7 +27,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        return view('kegiatan.create');
     }
 
     /**
@@ -51,13 +51,13 @@ class ArticlesController extends Controller
           $newName = uniqid('', true).'.'.$nameActExp;
           $upload = $filename->move($dist, $newName);
 
-          $article = new Articles([
+          $kegiatan = new Kegiatan([
             'judul' => $request->get('judul'),
             'content'=> $request->get('content'),
             'filename' => $dist.$newName
           ]);
-          $article->save();
-        return redirect()->route('articles.index')
+          $kegiatan->save();
+        return redirect()->route('kegiatan.index')
             ->with('success_message', 'Berhasil menambah Data baru');
 
     }
@@ -81,11 +81,11 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        $article = Articles::find($id);
-        if (!$article) return redirect()->route('articles.index')
+        $kegiatan = Kegiatan::find($id);
+        if (!$kegiatan) return redirect()->route('kegiatan.index')
             ->with('error_message', 'User dengan id '.$id.' tidak ditemukan');
-        return view('articles.edit', [
-            'article' => $article
+        return view('kegiatan.edit', [
+            'kegiatan' => $kegiatan
         ]);
     }
 
@@ -111,12 +111,12 @@ class ArticlesController extends Controller
         $nameActExp = strtolower(end($nameExp));
         $newName = uniqid('', true).'.'.$nameActExp;
         $upload = $filename->move($dist, $newName);
-          $article = Articles::find($id);
-          $article->judul = $request->get('judul');
-          $article->content = $request->get('content');
-          $article->filename = $dist.$newName;
-          $article->save();
-        return redirect()->route('articles.index')
+          $kegiatan = Kegiatan::find($id);
+          $kegiatan->judul = $request->get('judul');
+          $kegiatan->content = $request->get('content');
+          $kegiatan->filename = $dist.$newName;
+          $kegiatan->save();
+        return redirect()->route('kegiatan.index')
             ->with('success_message', 'Berhasil mengubah Data');
     }
 
@@ -128,9 +128,9 @@ class ArticlesController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $article = Articles::find($id);
-        $article->delete();
-        return redirect()->route('articles.index')
+        $kegiatan = Kegiatan::find($id);
+        $kegiatan->delete();
+        return redirect()->route('kegiatan.index')
             ->with('success_message', 'Berhasil menghapus user');
     }
 }

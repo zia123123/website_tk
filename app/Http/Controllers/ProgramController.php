@@ -14,7 +14,10 @@ class ProgramController extends Controller
      */
     public function index()
     {
-        return view('/programpage/programpage');
+        $programs = Program::all();
+        return view('program.index', [
+            'programs' => $programs
+        ]);
     }
 
     /**
@@ -24,7 +27,7 @@ class ProgramController extends Controller
      */
     public function create()
     {
-        //
+        return view('program.create');
     }
 
     /**
@@ -35,16 +38,37 @@ class ProgramController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'namaprogram'=>'required',
+            'deskripsi'=> 'required',
+            'filename' => 'required'
+          ]);
+          $filename = $request->file('filename');
+          $name = $filename->getClientOriginalName();
+          $dist = 'uploads/';
+          $nameExp = explode('.', $name);
+          $nameActExp = strtolower(end($nameExp));
+          $newName = uniqid('', true).'.'.$nameActExp;
+          $upload = $filename->move($dist, $newName);
+
+          $programs = new Program([
+            'namaprogram' => $request->get('namaprogram'),
+            'deskripsi'=> $request->get('deskripsi'),
+            'filename' => $dist.$newName
+          ]);
+          $programs->save();
+        return redirect()->route('programs.index')
+            ->with('success_message', 'Berhasil menambah Data baru');
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Program  $program
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Program $program)
+    public function show($id)
     {
         //
     }
@@ -52,34 +76,61 @@ class ProgramController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Program  $program
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Program $program)
+    public function edit($id)
     {
-        //
+        $programs = Program::find($id);
+        if (!$programs) return redirect()->route('program.index')
+            ->with('error_message', 'Data dengan id '.$id.' tidak ditemukan');
+        return view('program.edit', [
+            'programs' => $programs
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Program  $program
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Program $program)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'namaprogram'=>'required',
+            'deskripsi'=> 'required',
+            'filename' => 'required'
+          ]);
+
+        $filename = $request->file('filename');
+        $name = $filename->getClientOriginalName();
+        $dist = 'uploads/';
+        $nameExp = explode('.', $name);
+        $nameActExp = strtolower(end($nameExp));
+        $newName = uniqid('', true).'.'.$nameActExp;
+        $upload = $filename->move($dist, $newName);
+          $programs = Program::find($id);
+          $programs->namaprogram = $request->get('namaprogram');
+          $programs->deskripsi = $request->get('deskripsi');
+          $programs->filename = $dist.$newName;
+          $programs->save();
+        return redirect()->route('programs.index')
+            ->with('success_message', 'Berhasil mengubah Data');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Program  $program
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Program $program)
+    public function destroy(Request $request, $id)
     {
-        //
+        $programs = Program::find($id);
+        $programs->delete();
+        return redirect()->route('programs.index')
+            ->with('success_message', 'Berhasil menghapus user');
     }
 }

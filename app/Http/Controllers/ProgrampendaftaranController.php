@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Articles;
+use App\Models\Programpendaftaran;
 use Illuminate\Http\Request;
 
-class ArticlesController extends Controller
+class ProgrampendaftaranController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Articles::all();
-        return view('articles.index', [
-            'articles' => $articles
+        $programpendaftaran = Programpendaftaran::all();
+        return view('programpendaftaran.index', [
+            'programpendaftaran' => $programpendaftaran
         ]);
     }
 
@@ -27,7 +27,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        return view('programpendaftaran.create');
     }
 
     /**
@@ -41,7 +41,8 @@ class ArticlesController extends Controller
         $request->validate([
             'judul'=>'required',
             'content'=> 'required',
-            'filename' => 'required'
+            'filename' => 'required',
+            'link' =>'required',
           ]);
           $filename = $request->file('filename');
           $name = $filename->getClientOriginalName();
@@ -51,13 +52,14 @@ class ArticlesController extends Controller
           $newName = uniqid('', true).'.'.$nameActExp;
           $upload = $filename->move($dist, $newName);
 
-          $article = new Articles([
+          $programpendaftaran = new Programpendaftaran([
             'judul' => $request->get('judul'),
             'content'=> $request->get('content'),
+            'link'=> $request->get('link'),
             'filename' => $dist.$newName
           ]);
-          $article->save();
-        return redirect()->route('articles.index')
+          $programpendaftaran->save();
+        return redirect()->route('programpendaftaran.index')
             ->with('success_message', 'Berhasil menambah Data baru');
 
     }
@@ -81,11 +83,11 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        $article = Articles::find($id);
-        if (!$article) return redirect()->route('articles.index')
+        $programpendaftaran = Programpendaftaran::find($id);
+        if (!$programpendaftaran) return redirect()->route('programpendaftaran.index')
             ->with('error_message', 'User dengan id '.$id.' tidak ditemukan');
-        return view('articles.edit', [
-            'article' => $article
+        return view('programpendaftaran.edit', [
+            'programpendaftaran' => $programpendaftaran
         ]);
     }
 
@@ -101,7 +103,8 @@ class ArticlesController extends Controller
         $request->validate([
             'judul'=>'required',
             'content'=> 'required',
-            'filename' => 'required'
+            'filename' => 'required',
+            'link' => 'required',
           ]);
 
         $filename = $request->file('filename');
@@ -111,11 +114,12 @@ class ArticlesController extends Controller
         $nameActExp = strtolower(end($nameExp));
         $newName = uniqid('', true).'.'.$nameActExp;
         $upload = $filename->move($dist, $newName);
-          $article = Articles::find($id);
-          $article->judul = $request->get('judul');
-          $article->content = $request->get('content');
-          $article->filename = $dist.$newName;
-          $article->save();
+          $programpendaftaran = Programpendaftaran::find($id);
+          $programpendaftaran->judul = $request->get('judul');
+          $programpendaftaran->content = $request->get('content');
+          $programpendaftaran->link = $request->get('link');
+          $programpendaftaran->filename = $dist.$newName;
+          $programpendaftaran->save();
         return redirect()->route('articles.index')
             ->with('success_message', 'Berhasil mengubah Data');
     }
@@ -128,9 +132,9 @@ class ArticlesController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $article = Articles::find($id);
-        $article->delete();
-        return redirect()->route('articles.index')
+        $programpendaftaran = Programpendaftaran::find($id);
+        $programpendaftaran->delete();
+        return redirect()->route('programpendaftaran.index')
             ->with('success_message', 'Berhasil menghapus user');
     }
 }

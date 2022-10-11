@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Articles;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 
-class ArticlesController extends Controller
+class GalleryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Articles::all();
-        return view('articles.index', [
-            'articles' => $articles
+        $gallery = Gallery::all();
+        return view('gallery.index', [
+            'gallery' => $gallery
         ]);
     }
 
@@ -27,7 +27,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        return view('gallery.create');
     }
 
     /**
@@ -40,7 +40,6 @@ class ArticlesController extends Controller
     {
         $request->validate([
             'judul'=>'required',
-            'content'=> 'required',
             'filename' => 'required'
           ]);
           $filename = $request->file('filename');
@@ -51,13 +50,12 @@ class ArticlesController extends Controller
           $newName = uniqid('', true).'.'.$nameActExp;
           $upload = $filename->move($dist, $newName);
 
-          $article = new Articles([
+          $gallery = new Gallery([
             'judul' => $request->get('judul'),
-            'content'=> $request->get('content'),
             'filename' => $dist.$newName
           ]);
-          $article->save();
-        return redirect()->route('articles.index')
+          $gallery->save();
+        return redirect()->route('gallery.index')
             ->with('success_message', 'Berhasil menambah Data baru');
 
     }
@@ -81,11 +79,11 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        $article = Articles::find($id);
-        if (!$article) return redirect()->route('articles.index')
-            ->with('error_message', 'User dengan id '.$id.' tidak ditemukan');
-        return view('articles.edit', [
-            'article' => $article
+        $gallery = Gallery::find($id);
+        if (!$gallery) return redirect()->route('gallery.index')
+            ->with('error_message', 'Data dengan id '.$id.' tidak ditemukan');
+        return view('gallery.edit', [
+            'gallery' => $gallery
         ]);
     }
 
@@ -99,8 +97,8 @@ class ArticlesController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'judul'=>'required',
-            'content'=> 'required',
+            'namaprogram'=>'required',
+            'deskripsi'=> 'required',
             'filename' => 'required'
           ]);
 
@@ -111,12 +109,11 @@ class ArticlesController extends Controller
         $nameActExp = strtolower(end($nameExp));
         $newName = uniqid('', true).'.'.$nameActExp;
         $upload = $filename->move($dist, $newName);
-          $article = Articles::find($id);
-          $article->judul = $request->get('judul');
-          $article->content = $request->get('content');
-          $article->filename = $dist.$newName;
-          $article->save();
-        return redirect()->route('articles.index')
+          $gallery = Gallery::find($id);
+          $gallery->namaprogram = $request->get('judul');
+          $gallery->filename = $dist.$newName;
+          $gallery->save();
+        return redirect()->route('gallery.index')
             ->with('success_message', 'Berhasil mengubah Data');
     }
 
@@ -128,9 +125,9 @@ class ArticlesController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $article = Articles::find($id);
-        $article->delete();
-        return redirect()->route('articles.index')
-            ->with('success_message', 'Berhasil menghapus user');
+        $gallery = Gallery::find($id);
+        $gallery->delete();
+        return redirect()->route('gallery.index')
+            ->with('success_message', 'Berhasil menghapus Data');
     }
 }
