@@ -14,9 +14,9 @@ class ProgramController extends Controller
      */
     public function index()
     {
-        $program = Program::all();
-        return view('articles.index', [
-            'program' => $program
+        $programs = Program::all();
+        return view('program.index', [
+            'programs' => $programs
         ]);
     }
 
@@ -27,7 +27,7 @@ class ProgramController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        return view('program.create');
     }
 
     /**
@@ -51,13 +51,13 @@ class ProgramController extends Controller
           $newName = uniqid('', true).'.'.$nameActExp;
           $upload = $filename->move($dist, $newName);
 
-          $program = new Program([
+          $programs = new Program([
             'namaprogram' => $request->get('namaprogram'),
             'deskripsi'=> $request->get('deskripsi'),
             'filename' => $dist.$newName
           ]);
-          $program->save();
-        return redirect()->route('articles.index')
+          $programs->save();
+        return redirect()->route('programs.index')
             ->with('success_message', 'Berhasil menambah Data baru');
 
     }
@@ -81,11 +81,11 @@ class ProgramController extends Controller
      */
     public function edit($id)
     {
-        $program = Program::find($id);
-        if (!$program) return redirect()->route('articles.index')
-            ->with('error_message', 'User dengan id '.$id.' tidak ditemukan');
-        return view('articles.edit', [
-            'program' => $program
+        $programs = Program::find($id);
+        if (!$programs) return redirect()->route('program.index')
+            ->with('error_message', 'Data dengan id '.$id.' tidak ditemukan');
+        return view('program.edit', [
+            'programs' => $programs
         ]);
     }
 
@@ -111,12 +111,12 @@ class ProgramController extends Controller
         $nameActExp = strtolower(end($nameExp));
         $newName = uniqid('', true).'.'.$nameActExp;
         $upload = $filename->move($dist, $newName);
-          $program = Program::find($id);
-          $program->judul = $request->get('namaprogram');
-          $program->content = $request->get('deskripsi');
-          $program->filename = $dist.$newName;
-          $program->save();
-        return redirect()->route('articles.index')
+          $programs = Program::find($id);
+          $programs->namaprogram = $request->get('namaprogram');
+          $programs->deskripsi = $request->get('deskripsi');
+          $programs->filename = $dist.$newName;
+          $programs->save();
+        return redirect()->route('programs.index')
             ->with('success_message', 'Berhasil mengubah Data');
     }
 
@@ -128,11 +128,9 @@ class ProgramController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $program = Program::find($id);
-        if ($id == $request->program()->id) return redirect()->route('articles.index')
-            ->with('error_message', 'Anda tidak dapat menghapus diri sendiri.');
-        if ($program) $program->delete();
-        return redirect()->route('articles.index')
+        $programs = Program::find($id);
+        $programs->delete();
+        return redirect()->route('programs.index')
             ->with('success_message', 'Berhasil menghapus user');
     }
 }

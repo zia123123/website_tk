@@ -129,9 +129,7 @@ class ArticlesController extends Controller
     public function destroy(Request $request, $id)
     {
         $article = Articles::find($id);
-        if ($id == $request->article()->id) return redirect()->route('articles.index')
-            ->with('error_message', 'Anda tidak dapat menghapus diri sendiri.');
-        if ($article) $article->delete();
+        $article->delete();
         return redirect()->route('articles.index')
             ->with('success_message', 'Berhasil menghapus user');
     }

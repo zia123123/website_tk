@@ -234,6 +234,36 @@ return [
             'url'  => '/articles',
             'icon'  => 'fa fa-book',
         ],
+        [
+            'text' => 'Program',
+            'url'  => '/programs',
+            'icon'  => 'fa fa-flag',
+        ],
+        [
+            'text' => 'Gallery',
+            'url'  => '/gallery',
+            'icon'  => 'fa fa-image',
+        ],
+        [
+            'text' => 'About',
+            'url'  => '/about',
+            'icon'  => 'fa fa-info-circle',
+        ],
+        [
+            'text' => 'Visi Misi',
+            'url'  => '/visimisi',
+            'icon'  => 'fa fa-flask',
+        ],
+        [
+            'text' => 'Kegiatan',
+            'url'  => '/kegiatan',
+            'icon'  => 'fa fa-suitcase',
+        ],
+        [
+            'text' => 'Kegiatan Pendaftara',
+            'url'  => '/programpendaftaran',
+            'icon'  => 'fa fa-share',
+        ],
     ],
 
     /*

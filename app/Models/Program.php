@@ -10,6 +10,6 @@ class Program extends Model
     protected $fillable = [
         'namaprogram',
         'deskripsi',
-        'photo'
+        'filename'
       ];
 }
