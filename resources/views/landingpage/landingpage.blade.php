@@ -118,7 +118,7 @@
         <div class="site-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4">
+                    {{-- <div class="col-lg-4">
                         <div class="block-2 red">
                             <span class="wrap-icon">
                                 <span class="icon-home"></span>
@@ -147,7 +147,35 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima nesciunt, mollitia, hic
                                 enim id culpa.</p>
                         </div>
-                    </div>
+                    </div> --}}
+                    @foreach ($data_program as $row)
+                        @php
+
+                            if ($row['id'] % 2 == 0) {
+                                $color = 'block-2 red';
+                                $dataicon ='icon-home';
+                            } elseif ($row['id'] % 3 == 0) {
+                                $color = 'block-2 teal';
+                                $dataicon ='icon-person';
+                            } else {
+                                $color = 'block-2 yellow';
+                                $dataicon ='icon-cog';
+                            }
+
+                        @endphp
+
+                        {{-- <div class="uk-width-1-10" style="background-color:{{ $color }}">
+                            {{ $row['AGING'] }}</div> --}}
+                        <div class="col-lg-4">
+                            <div class="{{ $color }}">
+                                <span class="wrap-icon">
+                                    <span class="{{$dataicon}}"></span>
+                                </span>
+                                <h2>{{ $row->namaprogram }}</h2>
+                                <p>{{ $row->deskripsi }}</p>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -155,20 +183,20 @@
         <div class="site-section bg-light">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 mb-5 mb-md-0">
-                        <img src="{{ asset('vendor/secondaryasset/images/img_1.jpg') }}" alt="Image"
-                            class="img-fluid">
-                    </div>
-                    <div class="col-md-5 ml-auto pl-md-5">
-                        <span class="text-cursive h5 text-red">About Us</span>
-                        <h3 class="text-black">Bring Fun Life To Your Kids</h3>
-                        <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et harum, magni sequi nostrum
-                                maxime enim.</span><span>Magnam id atque dicta deleniti, ipsam ipsum distinctio. Facilis
-                                praesentium voluptatem accusamus, earum veritatis, laudantium.</span></p>
+                    @foreach ($data_about as $row)
+                        <div class="col-md-6 mb-5 mb-md-0">
+                            <img src="{{ asset($row->filename) }}" alt="Image" class="img-fluid">
+                        </div>
+                        <div class="col-md-5 ml-auto pl-md-5">
+                            <span class="text-cursive h5 text-red">{{ $row->judul }}</span>
+                            <h3 class="text-black">Bring Fun Life To Your Kids</h3>
+                            <p><span>{{ $row->content }}</span></p>
 
-                        <p class="mt-5"><a href="#" class="btn btn-warning py-4 btn-custom-1">More About
-                                Us</a></p>
-                    </div>
+                            <p class="mt-5"><a href="#" class="btn btn-warning py-4 btn-custom-1">More About
+                                    Us</a></p>
+                        </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>
