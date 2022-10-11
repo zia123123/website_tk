@@ -30,10 +30,10 @@ use App\Http\Controllers\ProgrampendaftaranController;
 */
 
 Route::get('/', [LandingPageController::class, 'index'])->name('/');
-Route::get('/program', [ProgramController::class, 'index'])->name('/program');
-Route::get('/galeri', [GaleriController::class, 'index'])->name('/galeri');
-Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->name('/pendaftaran');
-Route::get('/berita', [BeritaController::class, 'index'])->name('/berita');
+Route::get('/programlanding', [LandingPageController::class, 'programlanding'])->name('/programlanding');
+Route::get('/galerilanding', [LandingPageController::class, 'galerilanding'])->name('/galerilanding');
+Route::get('/pendaftaranlanding', [LandingPageController::class, 'pendaftaranlanding'])->name('/pendaftaranlanding');
+Route::get('/beritalanding', [LandingPageController::class, 'beritalanding'])->name('/beritalanding');
 
 Auth::routes();
 

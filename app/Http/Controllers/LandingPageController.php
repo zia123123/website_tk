@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Articles;
+use App\Models\Gallery;
 use App\Models\LandingPage;
 use App\Models\Program;
 use Illuminate\Http\Request;
@@ -21,6 +22,24 @@ class LandingPageController extends Controller
         $data_about = About::all();
         $data_program = Program::all();
         return view('/landingpage/landingpage', compact('data', 'data_about', 'data_program'));
+    }
+    public function programlanding()
+    {
+        $data_program = Program::all();
+        return view('/programpage/programpage', compact('data_program'));
+    }
+    public function beritalanding()
+    {
+        return view('/beritapage/beritapage');
+    }
+    public function pendaftaranlanding()
+    {
+        return view('/pendaftaranpage/pendaftaranpage');
+    }
+    public function galerilanding()
+    {
+        $data_galeri = Gallery::all();
+        return view('/galeripage/galeripage', compact('data_galeri'));
     }
 
     /**

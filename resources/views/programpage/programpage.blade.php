@@ -73,10 +73,11 @@
                     <nav class="site-navigation text-left mr-auto d-none d-lg-block" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto ">
                             <li><a href="{{ route('/') }}" class="nav-link">Beranda</a></li>
-                            <li class="active"><a href="{{ route('/program') }}" class="nav-link">Program</a></li>
-                            <li><a href="{{ route('/galeri') }}" class="nav-link">Galeri</a></li>
-                            <li><a href="{{ route('/pendaftaran') }}" class="nav-link">Pendaftaran</a></li>
-                            <li><a href="{{ route('/berita') }}" class="nav-link">Berita</a></li>
+                            <li class="active"><a href="{{ route('/programlanding') }}" class="nav-link">Program</a>
+                            </li>
+                            <li><a href="{{ route('/galerilanding') }}" class="nav-link">Galeri</a></li>
+                            <li><a href="{{ route('/pendaftaranlanding') }}" class="nav-link">Pendaftaran</a></li>
+                            <li><a href="{{ route('/beritalanding') }}" class="nav-link">Berita</a></li>
                         </ul>
                     </nav>
 
@@ -84,7 +85,7 @@
                         <a href="#"><span class="icon-facebook text-teal"></span></a>
                         <a href="#"><span class="icon-twitter text-success"></span></a>
                         <a href="#"><span class="icon-linkedin text-yellow"></span></a>
-                        <a href="{{ route('register') }}" class="btn btn-primary">Sign in</a>
+                        <a href="{{ route('login') }}" class="btn btn-primary">Sign in</a>
                     </div>
                 </div>
             </div>
@@ -118,12 +119,12 @@
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-12 text-center">
-                        <span class="text-cursive h5 text-red d-block">Packages You Like</span>
-                        <h2 class="text-white">Our Packages</h2>
+                        <span class="text-cursive h5 text-red d-block">Program You Like</span>
+                        <h2 class="text-white">Our Program</h2>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4">
+                    {{-- <div class="col-lg-4">
                         <div class="package text-center bg-white">
                             <span class="img-wrap"><img
                                     src="{{ asset('vendor/secondaryasset/images/flaticon/svg/001-jigsaw.svg') }}"
@@ -155,7 +156,28 @@
                                 distinctio soluta recusandae?</p>
                             <p><a href="#" class="btn btn-success btn-custom-1 mt-4">Learn More</a></p>
                         </div>
-                    </div>
+                    </div> --}}
+                    @foreach ($data_program as $row)
+                        @php
+
+                            if ($row['id'] % 2 == 0) {
+                                $class = 'btn btn-success btn-custom-1 mt-4';
+                            } elseif ($row['id'] % 3 == 0) {
+                                $class = 'btn btn-warning btn-custom-1 mt-4';
+                            } else {
+                                $class = 'btn btn-primary btn-custom-1 mt-4';
+                            }
+                        @endphp
+                        <div class="col-lg-4">
+                            <div class="package text-center bg-white">
+                                <span class="img-wrap"><img src="{{ asset($row->filename) }}" alt="Image"
+                                        class="img-fluid"></span>
+                                <h3 class="text-danger">{{ $row->namaprogram }}</h3>
+                                <p>{{ $row->deskripsi }}</p>
+                                <p><a href="#" class="{{ $class }}">Learn More</a></p>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
