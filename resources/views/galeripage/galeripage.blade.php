@@ -73,10 +73,10 @@
                     <nav class="site-navigation text-left mr-auto d-none d-lg-block" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto ">
                             <li><a href="{{ route('/') }}" class="nav-link">Beranda</a></li>
-                            <li><a href="{{ route('/program') }}" class="nav-link">Program</a></li>
-                            <li class="active"><a href="{{ route('/galeri') }}" class="nav-link">Galeri</a></li>
-                            <li><a href="{{ route('/pendaftaran') }}" class="nav-link">Pendaftaran</a></li>
-                            <li><a href="{{ route('/berita') }}" class="nav-link">Berita</a></li>
+                            <li><a href="{{ route('/programlanding') }}" class="nav-link">Program</a></li>
+                            <li class="active"><a href="{{ route('/galerilanding') }}" class="nav-link">Galeri</a></li>
+                            <li><a href="{{ route('/pendaftaranlanding') }}" class="nav-link">Pendaftaran</a></li>
+                            <li><a href="{{ route('/beritalanding') }}" class="nav-link">Berita</a></li>
                         </ul>
                     </nav>
 
@@ -84,7 +84,7 @@
                         <a href="#"><span class="icon-facebook text-teal"></span></a>
                         <a href="#"><span class="icon-twitter text-success"></span></a>
                         <a href="#"><span class="icon-linkedin text-yellow"></span></a>
-                        <a href="{{ route('register') }}" class="btn btn-primary">Sign in</a>
+                        <a href="{{ route('login') }}" class="btn btn-primary">Sign in</a>
                     </div>
                 </div>
             </div>
@@ -123,38 +123,52 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3 mb-4">
-                        <a href="{{ asset('vendor/secondaryasset/images/img_2.jpg') }}" data-fancybox="gal"><img src="{{ asset('vendor/secondaryasset/images/img_2.jpg') }}" alt="Image"
+                    {{-- <div class="col-md-3 mb-4">
+                        <a href="{{ asset('vendor/secondaryasset/images/img_2.jpg') }}" data-fancybox="gal"><img
+                                src="{{ asset('vendor/secondaryasset/images/img_2.jpg') }}" alt="Image"
                                 class="img-fluid"></a>
                     </div>
                     <div class="col-md-3 mb-4">
-                        <a href="{{ asset('vendor/secondaryasset/images/img_2.jpg') }}" data-fancybox="gal"><img src="{{ asset('vendor/secondaryasset/images/img_2.jpg') }}" alt="Image"
+                        <a href="{{ asset('vendor/secondaryasset/images/img_2.jpg') }}" data-fancybox="gal"><img
+                                src="{{ asset('vendor/secondaryasset/images/img_2.jpg') }}" alt="Image"
                                 class="img-fluid"></a>
                     </div>
                     <div class="col-md-3 mb-4">
-                        <a href="{{ asset('vendor/secondaryasset/images/img_3.jpg') }}" data-fancybox="gal"><img src="{{ asset('vendor/secondaryasset/images/img_3.jpg') }}" alt="Image"
+                        <a href="{{ asset('vendor/secondaryasset/images/img_3.jpg') }}" data-fancybox="gal"><img
+                                src="{{ asset('vendor/secondaryasset/images/img_3.jpg') }}" alt="Image"
                                 class="img-fluid"></a>
                     </div>
                     <div class="col-md-3 mb-4">
-                        <a href="{{ asset('vendor/secondaryasset/images/img_4.jpg') }}" data-fancybox="gal"><img src="{{ asset('vendor/secondaryasset/images/img_4.jpg') }}" alt="Image"
+                        <a href="{{ asset('vendor/secondaryasset/images/img_4.jpg') }}" data-fancybox="gal"><img
+                                src="{{ asset('vendor/secondaryasset/images/img_4.jpg') }}" alt="Image"
                                 class="img-fluid"></a>
                     </div>
 
                     <div class="col-md-3 mb-4">
-                        <a href="{{ asset('vendor/secondaryasset/images/img_5.jpg') }}" data-fancybox="gal"><img src="{{ asset('vendor/secondaryasset/images/img_5.jpg') }}" alt="Image"
+                        <a href="{{ asset('vendor/secondaryasset/images/img_5.jpg') }}" data-fancybox="gal"><img
+                                src="{{ asset('vendor/secondaryasset/images/img_5.jpg') }}" alt="Image"
                                 class="img-fluid"></a>
                     </div>
                     <div class="col-md-3 mb-4">
-                        <a href="{{ asset('vendor/secondaryasset/images/img_3.jpg') }}" data-fancybox="gal"><img src="{{ asset('vendor/secondaryasset/images/img_3.jpg') }}" alt="Image"
+                        <a href="{{ asset('vendor/secondaryasset/images/img_3.jpg') }}" data-fancybox="gal"><img
+                                src="{{ asset('vendor/secondaryasset/images/img_3.jpg') }}" alt="Image"
                                 class="img-fluid"></a>
                     </div>
                     <div class="col-md-3 mb-4">
-                        <a href="{{ asset('vendor/secondaryasset/images/img_2.jpg') }}" data-fancybox="gal"><img src="{{ asset('vendor/secondaryasset/images/img_2.jpg') }}" alt="Image"
+                        <a href="{{ asset('vendor/secondaryasset/images/img_2.jpg') }}" data-fancybox="gal"><img
+                                src="{{ asset('vendor/secondaryasset/images/img_2.jpg') }}" alt="Image"
                                 class="img-fluid"></a>
                     </div>
                     <div class="col-md-3 mb-4">
-                        <img src="{{ asset('vendor/secondaryasset/images/img_1.jpg') }}" alt="Image" class="img-fluid">
-                    </div>
+                        <img src="{{ asset('vendor/secondaryasset/images/img_1.jpg') }}" alt="Image"
+                            class="img-fluid">
+                    </div> --}}
+                    @foreach ($data_galeri as $row)
+                        <div class="col-md-3 mb-4">
+                            <a href="{{ asset($row->filename) }}" data-fancybox="gal"><img
+                                    src="{{ asset($row->filename) }}" alt="Image" class="img-fluid"></a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

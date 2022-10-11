@@ -73,10 +73,10 @@
                     <nav class="site-navigation text-left mr-auto d-none d-lg-block" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto ">
                             <li class="active"><a href="{{ route('/') }}" class="nav-link">Beranda</a></li>
-                            <li><a href="{{ route('/program') }}" class="nav-link">Program</a></li>
-                            <li><a href="{{ route('/galeri') }}" class="nav-link">Galeri</a></li>
-                            <li><a href="{{ route('/pendaftaran') }}" class="nav-link">Pendaftaran</a></li>
-                            <li><a href="{{ route('/berita') }}" class="nav-link">Berita</a></li>
+                            <li><a href="{{ route('/programlanding') }}" class="nav-link">Program</a></li>
+                            <li><a href="{{ route('/galerilanding') }}" class="nav-link">Galeri</a></li>
+                            <li><a href="{{ route('/pendaftaranlanding') }}" class="nav-link">Pendaftaran</a></li>
+                            <li><a href="{{ route('/beritalanding') }}" class="nav-link">Berita</a></li>
                         </ul>
                     </nav>
 
@@ -114,7 +114,7 @@
                 </div>
             </div>
         </div>
-
+        {{-- data program --}}
         <div class="site-section">
             <div class="container">
                 <div class="row">
@@ -179,7 +179,7 @@
                 </div>
             </div>
         </div>
-
+        {{-- about us  --}}
         <div class="site-section bg-light">
             <div class="container">
                 <div class="row">
@@ -201,7 +201,7 @@
             </div>
         </div>
 
-
+        {{-- article list --}}
         <div class="site-section bg-info">
             <div class="container">
                 <div class="row mb-5">
