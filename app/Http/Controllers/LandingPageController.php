@@ -7,6 +7,7 @@ use App\Models\Articles;
 use App\Models\Gallery;
 use App\Models\LandingPage;
 use App\Models\Program;
+use App\Models\Visimisi;
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
@@ -21,7 +22,8 @@ class LandingPageController extends Controller
         $data = Articles::paginate(3);
         $data_about = About::all();
         $data_program = Program::all();
-        return view('/landingpage/landingpage', compact('data', 'data_about', 'data_program'));
+        $data_visi = Visimisi::all();
+        return view('/landingpage/landingpage', compact('data', 'data_about', 'data_program', 'data_visi'));
     }
     public function programlanding()
     {

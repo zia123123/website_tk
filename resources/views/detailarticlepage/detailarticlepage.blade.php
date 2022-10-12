@@ -72,11 +72,8 @@
 
                     <nav class="site-navigation text-left mr-auto d-none d-lg-block" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto ">
-                            <li class="active"><a href="{{ route('/') }}" class="nav-link">Beranda</a></li>
-                            <li><a href="{{ route('/programlanding') }}" class="nav-link">Program</a></li>
-                            <li><a href="{{ route('/galerilanding') }}" class="nav-link">Galeri</a></li>
-                            <li><a href="{{ route('/pendaftaranlanding') }}" class="nav-link">Pendaftaran</a></li>
-                            <li><a href="{{ route('/beritalanding') }}" class="nav-link">Berita</a></li>
+                            <li><a href="{{ route('/') }}" class="btn btn-primary" style="width: 150px;"><span class="text-white">Back</span></a>
+                            </li>
                         </ul>
                     </nav>
 
@@ -84,7 +81,6 @@
                         <a href="#"><span class="icon-facebook text-teal"></span></a>
                         <a href="#"><span class="icon-twitter text-success"></span></a>
                         <a href="#"><span class="icon-linkedin text-yellow"></span></a>
-                        <a href="{{ route('login') }}" class="btn btn-primary">Sign in</a>
                     </div>
                 </div>
             </div>
@@ -94,233 +90,49 @@
         </header>
 
         <div class="ftco-blocks-cover-1">
-
-            <div class="site-section-cover overlay">
+            <!-- data-stellar-background-ratio="0.5" style="background-image: url('images/hero_1.jpg')" -->
+            <div class="site-section-cover overlay" data-stellar-background-ratio="0.5"
+                style="background-image: url('{{ asset('vendor/secondaryasset/images/hero_1.jpg') }}')">
                 <div class="container">
                     <div class="row align-items-center ">
+
                         <div class="col-md-5 mt-5 pt-5">
                             <span class="text-cursive h5 text-red">Welcome To Our Website</span>
-                            <h1 class="mb-3 font-weight-bold text-teal">Bring Fun Life To Your Kids</h1>
-                            <p>Amazing Playground for your kids</p>
-                            <p class="mt-5"><a href="#" class="btn btn-primary py-4 btn-custom-1">Learn More</a>
+                            <h1 class="mb-3 font-weight-bold text-teal">Detail Article</h1>
+                            <p><a href="{{ route('/') }}" class="text-white">Home</a> <span class="mx-3">/</span>
+                                <strong>Detail Article</strong>
                             </p>
                         </div>
-                        <div class="col-md-6 ml-auto align-self-end">
-                            <img src="{{ asset('vendor/secondaryasset/images/kid_transparent.png') }}" alt="Image"
-                                class="img-fluid">
 
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        {{-- data program --}}
-        <div class="site-section">
-            <div class="container">
-                <div class="row">
-                    {{-- <div class="col-lg-4">
-                        <div class="block-2 red">
-                            <span class="wrap-icon">
-                                <span class="icon-home"></span>
-                            </span>
-                            <h2>Indoor Games</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima nesciunt, mollitia, hic
-                                enim id culpa.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="block-2 yellow">
-                            <span class="wrap-icon">
-                                <span class="icon-person"></span>
-                            </span>
-                            <h2>Outdoor Game And Event</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima nesciunt, mollitia, hic
-                                enim id culpa.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="block-2 teal">
-                            <span class="wrap-icon">
-                                <span class="icon-cog"></span>
-                            </span>
-                            <h2>Camping for Kids</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima nesciunt, mollitia, hic
-                                enim id culpa.</p>
-                        </div>
-                    </div> --}}
-                    @foreach ($data_program as $row)
-                        @php
 
-                            if ($row['id'] % 2 == 0) {
-                                $color = 'block-2 red';
-                                $dataicon = 'icon-home';
-                            } elseif ($row['id'] % 3 == 0) {
-                                $color = 'block-2 teal';
-                                $dataicon = 'icon-person';
-                            } else {
-                                $color = 'block-2 yellow';
-                                $dataicon = 'icon-cog';
-                            }
 
-                        @endphp
-
-                        {{-- <div class="uk-width-1-10" style="background-color:{{ $color }}">
-                            {{ $row['AGING'] }}</div> --}}
-                        <div class="col-lg-4">
-                            <div class="{{ $color }}">
-                                <span class="wrap-icon">
-                                    <span class="{{ $dataicon }}"></span>
-                                </span>
-                                <h2>{{ $row->namaprogram }}</h2>
-                                <p>{{ $row->deskripsi }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-        {{-- about us  --}}
         <div class="site-section bg-light">
             <div class="container">
                 <div class="row">
-                    @foreach ($data_about as $row)
-                        <div class="col-md-6 mb-5 mb-md-0">
-                            <img src="{{ asset($row->filename) }}" alt="Image" class="img-fluid">
-                        </div>
-                        <div class="col-md-5 ml-auto pl-md-5">
-                            <span class="text-cursive h5 text-red">{{ $row->judul }}</span>
-                            <h3 class="text-black">Bring Fun Life To Your Kids</h3>
-                            <p><span>{{ $row->content }}</span></p>
+                    <div class="col-md-6 mb-5 mb-md-0">
+                        <img src="{{ asset($data_article->filename) }}" alt="Image" class="img-fluid">
+                    </div>
+                    <div class="col-md-5 ml-auto pl-md-5">
+                        <span class="text-cursive h5 text-red">{{ $data_article->judul }}</span>
+                        <h3 class="text-black">Bring Fun Life To Your Kids</h3>
+                        <p><span>{{ $data_article->content }}</span></p>
 
-                            <p class="mt-5"><a href="#" class="btn btn-warning py-4 btn-custom-1">More About
-                                    Us</a></p>
-                        </div>
-                    @endforeach
-
+                        <p class="mt-5"><a href="#" class="btn btn-warning py-4 btn-custom-1">More About
+                                Us</a></p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        {{-- article list --}}
         <div class="site-section bg-info">
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-12 text-center">
-                        <span class="text-cursive h3 text-white d-block">Article</span>
-                        <h2 class="text-black">Our Article</h2>
-                    </div>
-                </div>
-
-                <div class="row">
-                    @foreach ($data as $row)
-                        <div class="col-lg-4 mb-4 mb-lg-0">
-                            <div class="package text-center bg-white">
-                                <span class="img-wrap"><img src="{{ asset($row->filename) }}" alt="Image"
-                                        class="img-fluid" style="width:100px;"></span>
-                                <h3 class="text-teal">{{ $row->judul }}</h3>
-                                <p>{{ $row->content }}</p>
-                                <p><a href="/detailarticlelanding/{{ $row->id }}"
-                                        class="btn btn-primary btn-custom-1 mt-4">Learn More</a></p>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-        {{-- <div class="col-lg-4 mb-4 mb-lg-0">
-            <div class="package text-center bg-white">
-                <span class="img-wrap"><img
-                        src="{{ asset('vendor/secondaryasset/images/flaticon/svg/002-target.svg') }}"
-                        alt="Image" class="img-fluid"></span>
-                <h3 class="text-success">Outdoor Game and Event</h3>
-                <p>Lorem ipsum dolor sit amet. Consequatur aliquam, fuga maiores amet quo corporis
-                    distinctio soluta recusandae?</p>
-                <p><a href="#" class="btn btn-warning btn-custom-1 mt-4">Learn More</a></p>
-            </div>
-        </div>
-        <div class="col-lg-4 mb-4 mb-lg-0">
-            <div class="package text-center bg-white">
-                <span class="img-wrap"><img
-                        src="{{ asset('vendor/secondaryasset/images/flaticon/svg/003-mission.svg') }}"
-                        alt="Image" class="img-fluid"></span>
-                <h3 class="text-danger">Camping for Kids</h3>
-                <p>Lorem ipsum dolor sit amet. Consequatur aliquam, fuga maiores amet quo corporis
-                    distinctio soluta recusandae?</p>
-                <p><a href="#" class="btn btn-success btn-custom-1 mt-4">Learn More</a></p>
-            </div>
-        </div> --}}
-        {{-- visi misi list --}}
-        <div class="site-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <span class="text-cursive h5 text-red d-block">Visi Misi</span>
-                        <h2 class="text-black">Visi Misi TK Little Moslem</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quis cupiditate fugit,
-                            voluptatibus ullam, non laboriosam alias veniam, ex inventore iure sed?</p>
-                    </div>
-                    {{-- <div class="col-md-4">
-                        <div class="pricing teal">
-                            <span class="price">
-                                <span>$30</span>
-                            </span>
-                            <h3>Silver Pack</h3>
-                            <ul class="ul-check list-unstyled teal">
-                                <li>Lorem ipsum dolor sit amet</li>
-                                <li>Consectetur adipisicing elit</li>
-                                <li>Nemo quis cupiditate</li>
-                            </ul>
-                            <p><a href="#" class="btn btn-teal btn-custom-1 mt-4">Buy Now</a></p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="pricing danger">
-                            <span class="price">
-                                <span class="icon-home" style="color: white;"></span>
-                            </span>
-                            <h3>Golden Pack</h3>
-                            <ul class="ul-check list-unstyled danger">
-                                <li>Lorem ipsum dolor sit amet</li>
-                                <li>Consectetur adipisicing elit</li>
-                                <li>Nemo quis cupiditate</li>
-                            </ul>
-                            <p><a href="#" class="btn btn-danger btn-custom-1 mt-4">Buy Now</a></p>
-                        </div>
-                    </div> --}}
-                    @foreach ($data_visi as $row)
-                        @php
-                            if ($row['id'] % 2 == 0) {
-                                $color = 'pricing teal';
-                                $dataicon = 'icon-home';
-                                $btn = 'btn btn-teal btn-custom-1 mt-4';
-                            } else {
-                                $color = 'pricing danger';
-                                $dataicon = 'icon-cog';
-                                $btn = 'btn btn-danger btn-custom-1 mt-4';
-                            }
-                        @endphp
-                        <div class="col-md-4">
-                            <div class="{{ $color }}">
-                                <span class="price">
-                                    <span class="{{ $dataicon }}" style="color: white;"></span>
-                                </span>
-                                <h3>{{ $row->judul }}</h3>
-                                <ul class="ul-check list-unstyled danger">
-                                    <li>{{ $row->content }}</li>
-                                </ul>
-                                <p><a href="#" class="{{ $btn }}">Buy Now</a></p>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-
-        <div class="site-section bg-light">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-12 text-center">
-                        <span class="text-cursive h5 text-red d-block">Testimonial</span>
+                        <span class="text-cursive h5 text-white d-block">Testimonial</span>
                         <h2 class="text-black">What Our Client Says About Us</h2>
                     </div>
                 </div>
@@ -415,7 +227,6 @@
         </div>
 
 
-
         <footer class="site-footer">
             <div class="container">
                 <div class="row">
@@ -480,6 +291,7 @@
         </footer>
 
     </div>
+
     <script src="{{ asset('vendor/secondaryasset/js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('vendor/secondaryasset/js/jquery-migrate-3.0.0.js') }}"></script>
     <script src="{{ asset('vendor/secondaryasset/js/popper.min.js') }}"></script>
