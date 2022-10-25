@@ -44,7 +44,8 @@
             <div class="container mb-3">
                 <div class="d-flex align-items-center">
                     <div class="site-logo mr-auto">
-                        <a href="{{ route('/') }}">TK Litte Moslem<span class="text-primary">.</span></a>
+                        <a href="{{ route('/') }}" style="font-size: 35px">TKIT Little Moslem<span
+                                class="text-primary">.</span></a>
                     </div>
                     <div class="site-quick-contact d-none d-lg-flex ml-auto ">
                         <div class="d-flex site-info align-items-center mr-5">
@@ -74,16 +75,14 @@
                             <li><a href="{{ route('/') }}" class="nav-link">Beranda</a></li>
                             <li><a href="{{ route('/programlanding') }}" class="nav-link">Program</a></li>
                             <li><a href="{{ route('/galerilanding') }}" class="nav-link">Galeri</a></li>
-                            <li class="active"><a href="{{ route('/pendaftaranlanding') }}" class="nav-link">Pendaftaran</a></li>
+                            <li class="active"><a href="{{ route('/pendaftaranlanding') }}"
+                                    class="nav-link">Pendaftaran</a></li>
                             <li><a href="{{ route('/beritalanding') }}" class="nav-link">Berita</a></li>
                         </ul>
                     </nav>
 
                     <div class="top-social ml-auto">
                         <a href="#"><span class="icon-facebook text-teal"></span></a>
-                        <a href="#"><span class="icon-twitter text-success"></span></a>
-                        <a href="#"><span class="icon-linkedin text-yellow"></span></a>
-                        <a href="{{ route('login') }}" class="btn btn-primary">Sign in</a>
                     </div>
                 </div>
             </div>
@@ -99,9 +98,9 @@
                     <div class="row align-items-center ">
 
                         <div class="col-md-5 mt-5 pt-5">
-                            <span class="text-cursive h5 text-red">Pendaftaran</span>
+                            <span class="text-cursive h5 text-white">Pendaftaran</span>
                             <h1 class="mb-3 font-weight-bold text-teal">Pendaftaran</h1>
-                            <p><a href="{{ route('/') }}" class="text-white">Home</a> <span class="mx-3">/</span>
+                            <p><a href="{{ route('/') }}" class="text-red">Home</a> <span class="mx-3">/</span>
                                 <strong>Pendaftaran</strong>
                             </p>
                         </div>
@@ -122,37 +121,28 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-8 mb-5">
-                        <form action="#" method="post">
-                            <div class="form-group row">
-                                <div class="col-md-6 mb-4 mb-lg-0">
-                                    <input type="text" class="form-control" placeholder="First name">
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="First name">
-                                </div>
-                            </div>
 
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" placeholder="Email address">
-                                </div>
+                    @foreach ($data_pendaftaran as $row)
+                        @php
+                            if ($row['id'] % 2 == 0) {
+                                $color = 'text-teal';
+                                $btncolor = 'btn btn-success mt-2 text-white';
+                            } else {
+                                $color = 'text-purple';
+                                $btncolor = 'btn btn-info mt-2';
+                            }
+                        @endphp
+                        <div class="col-lg-4 mb-4">
+                            <div class="package text-center bg-white">
+                                <span class="img-wrap"><img src="{{ asset($row->filename) }}" alt="Image"
+                                        class="img-fluid" style="width:100px;"></span>
+                                <h3 class="{{ $color }}">{{ $row->judul }}</h3>
+                                <p>{{ $row->content }}</p>
+                                <p><a target="_blank" href="{{ $row->link }}" class="{{ $btncolor }}">Click
+                                        me</a></p>
                             </div>
-
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    <textarea name="" id="" class="form-control" placeholder="Write your message." cols="30"
-                                        rows="10"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-6 mr-auto">
-                                    <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5"
-                                        value="Send Message">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                        </div>
+                    @endforeach
                     <div class="col-lg-4 ml-auto">
                         <div class="bg-white p-3 p-md-5">
                             <h3 class="text-black mb-4">Contact Info</h3>
@@ -171,7 +161,7 @@
                 </div>
             </div>
         </div>
-
+        {{--
         <div class="site-section">
             <div class="container">
                 <div class="row mb-5">
@@ -228,7 +218,7 @@
                 </div>
 
             </div>
-        </div>
+        </div> --}}
 
 
 
@@ -236,9 +226,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4">
-                        <h2 class="footer-heading mb-3">About Us</h2>
-                        <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and
-                            Consonantia, there live the blind texts. </p>
+                        @foreach ($data_about as $row)
+                            <h2 class="footer-heading mb-3">{{ $row->judul }}</h2>
+                            <p class="mb-5">{{ $row->content }}</p>
+                        @endforeach
 
                         <h2 class="footer-heading mb-4">Newsletter</h2>
                         <form action="#" class="d-flex" class="subscribe">

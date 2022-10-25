@@ -45,7 +45,8 @@
             <div class="container mb-3">
                 <div class="d-flex align-items-center">
                     <div class="site-logo mr-auto">
-                        <a href="{{ route('/') }}">TK Litte Moslem<span class="text-primary">.</span></a>
+                        <a href="{{ route('/') }}" style="font-size: 35px">TKIT Little Moslem<span
+                                class="text-primary">.</span></a>
                     </div>
                     <div class="site-quick-contact d-none d-lg-flex ml-auto ">
                         <div class="d-flex site-info align-items-center mr-5">
@@ -82,9 +83,6 @@
 
                     <div class="top-social ml-auto">
                         <a href="#"><span class="icon-facebook text-teal"></span></a>
-                        <a href="#"><span class="icon-twitter text-success"></span></a>
-                        <a href="#"><span class="icon-linkedin text-yellow"></span></a>
-                        <a href="{{ route('login') }}" class="btn btn-primary">Sign in</a>
                     </div>
                 </div>
             </div>
@@ -101,9 +99,9 @@
                     <div class="row align-items-center ">
 
                         <div class="col-md-5 mt-5 pt-5">
-                            <span class="text-cursive h5 text-red">Welcome To Our Website</span>
+                            <span class="text-cursive h5 text-white">Welcome To Our Website</span>
                             <h1 class="mb-3 font-weight-bold text-teal">Berita</h1>
-                            <p><a href="{{ route('/') }}" class="text-white">Home</a> <span class="mx-3">/</span>
+                            <p><a href="{{ route('/') }}" class="text-red">Home</a> <span class="mx-3">/</span>
                                 <strong>Berita</strong>
                             </p>
                         </div>
@@ -118,84 +116,34 @@
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-12 text-center">
-                        <span class="text-cursive h5 text-red d-block">Packages You Like</span>
-                        <h2 class="text-white">Our Packages</h2>
+                        <span class="text-cursive h5 text-white d-block">News You Like</span>
+                        <h2 class="text-white">Our News</h2>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4">
-                        <div class="package text-center bg-white">
-                            <span class="img-wrap"><img
-                                    src="{{ asset('vendor/secondaryasset/images/flaticon/svg/001-jigsaw.svg') }}"
-                                    alt="Image" class="img-fluid"></span>
-                            <h3 class="text-teal">Indoor Games</h3>
-                            <p>Lorem ipsum dolor sit amet. Consequatur aliquam, fuga maiores amet quo corporis
-                                distinctio soluta recusandae?</p>
-                            <p><a href="#" class="btn btn-primary btn-custom-1 mt-4">Learn More</a></p>
+                    @foreach ($data_berita as $row)
+                        @php
+                            if ($row['id'] % 2 == 0) {
+                                $color = 'text-teal';
+                            } else {
+                                $color = 'text-purple';
+                            }
+                        @endphp
+                        <div class="col-lg-4 mb-4">
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img-top" src="{{ asset($row->filename) }}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $row->judul }}</h5>
+                                    <p class="card-text mb-2">{{ $row->content }}</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="package text-center bg-white">
-                            <span class="img-wrap"><img
-                                    src="{{ asset('vendor/secondaryasset/images/flaticon/svg/002-target.svg') }}"
-                                    alt="Image" class="img-fluid"></span>
-                            <h3 class="text-success">Outdoor Game and Event</h3>
-                            <p>Lorem ipsum dolor sit amet. Consequatur aliquam, fuga maiores amet quo corporis
-                                distinctio soluta recusandae?</p>
-                            <p><a href="#" class="btn btn-warning btn-custom-1 mt-4">Learn More</a></p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="package text-center bg-white">
-                            <span class="img-wrap"><img
-                                    src="{{ asset('vendor/secondaryasset/images/flaticon/svg/003-mission.svg') }}"
-                                    alt="Image" class="img-fluid"></span>
-                            <h3 class="text-danger">Camping for Kids</h3>
-                            <p>Lorem ipsum dolor sit amet. Consequatur aliquam, fuga maiores amet quo corporis
-                                distinctio soluta recusandae?</p>
-                            <p><a href="#" class="btn btn-success btn-custom-1 mt-4">Learn More</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-lg-4">
-                        <div class="package text-center bg-white">
-                            <span class="img-wrap"><img
-                                    src="{{ asset('vendor/secondaryasset/images/flaticon/svg/001-jigsaw.svg') }}"
-                                    alt="Image" class="img-fluid"></span>
-                            <h3 class="text-teal">Indoor Games</h3>
-                            <p>Lorem ipsum dolor sit amet. Consequatur aliquam, fuga maiores amet quo corporis
-                                distinctio soluta recusandae?</p>
-                            <p><a href="#" class="btn btn-primary btn-custom-1 mt-4">Learn More</a></p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="package text-center bg-white">
-                            <span class="img-wrap"><img
-                                    src="{{ asset('vendor/secondaryasset/images/flaticon/svg/002-target.svg') }}"
-                                    alt="Image" class="img-fluid"></span>
-                            <h3 class="text-success">Outdoor Game and Event</h3>
-                            <p>Lorem ipsum dolor sit amet. Consequatur aliquam, fuga maiores amet quo corporis
-                                distinctio soluta recusandae?</p>
-                            <p><a href="#" class="btn btn-warning btn-custom-1 mt-4">Learn More</a></p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="package text-center bg-white">
-                            <span class="img-wrap"><img
-                                    src="{{ asset('vendor/secondaryasset/images/flaticon/svg/003-mission.svg') }}"
-                                    alt="Image" class="img-fluid"></span>
-                            <h3 class="text-danger">Camping for Kids</h3>
-                            <p>Lorem ipsum dolor sit amet. Consequatur aliquam, fuga maiores amet quo corporis
-                                distinctio soluta recusandae?</p>
-                            <p><a href="#" class="btn btn-success btn-custom-1 mt-4">Learn More</a></p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
 
-        <div class="site-section bg-light">
+        {{-- <div class="site-section bg-light">
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-12 text-center">
@@ -279,10 +227,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
 
-        <div class="site-section py-5 bg-warning">
+        {{-- <div class="site-section py-5 bg-warning">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-12 d-flex">
@@ -291,16 +239,17 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
 
         <footer class="site-footer">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4">
-                        <h2 class="footer-heading mb-3">About Us</h2>
-                        <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and
-                            Consonantia, there live the blind texts. </p>
+                        @foreach ($data_about as $row)
+                            <h2 class="footer-heading mb-3">{{ $row->judul }}</h2>
+                            <p class="mb-5">{{ $row->content }}</p>
+                        @endforeach
 
                         <h2 class="footer-heading mb-4">Newsletter</h2>
                         <form action="#" class="d-flex" class="subscribe">

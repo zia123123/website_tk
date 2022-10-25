@@ -45,12 +45,13 @@
             <div class="container mb-3">
                 <div class="d-flex align-items-center">
                     <div class="site-logo mr-auto">
-                        <a href="{{ route('/') }}">TK Litte Moslem<span class="text-primary">.</span></a>
+                        <a href="{{ route('/') }}" style="font-size: 35px">TKIT Little Moslem<span
+                                class="text-primary">.</span></a>
                     </div>
                     <div class="site-quick-contact d-none d-lg-flex ml-auto ">
                         <div class="d-flex site-info align-items-center mr-5">
                             <span class="block-icon mr-3"><span class="icon-map-marker text-yellow"></span></span>
-                            <span>34 Bojongswan, City Bandung, <br> Indonesia</span>
+                            <span>34 Bojongsoang, City Bandung, <br> Indonesia</span>
                         </div>
                         <div class="d-flex site-info align-items-center">
                             <span class="block-icon mr-3"><span class="icon-clock-o"></span></span>
@@ -82,8 +83,6 @@
 
                     <div class="top-social ml-auto">
                         <a href="#"><span class="icon-facebook text-teal"></span></a>
-                        <a href="#"><span class="icon-twitter text-success"></span></a>
-                        <a href="#"><span class="icon-linkedin text-yellow"></span></a>
                         <a href="{{ route('login') }}" class="btn btn-primary">Sign in</a>
                     </div>
                 </div>
@@ -117,6 +116,12 @@
         {{-- data program --}}
         <div class="site-section">
             <div class="container">
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <span class="text-cursive h3 text-teal d-block">Program</span>
+                        <h2 class="text-teal">Our Program</h2>
+                    </div>
+                </div>
                 <div class="row">
                     {{-- <div class="col-lg-4">
                         <div class="block-2 red">
@@ -189,7 +194,7 @@
                         </div>
                         <div class="col-md-5 ml-auto pl-md-5">
                             <span class="text-cursive h5 text-red">{{ $row->judul }}</span>
-                            <h3 class="text-black">Bring Fun Life To Your Kids</h3>
+                            <h3 class="text-black">TK Little Moslem Bojongsoang</h3>
                             <p><span>{{ $row->content }}</span></p>
 
                             <p class="mt-5"><a href="#" class="btn btn-warning py-4 btn-custom-1">More About
@@ -207,7 +212,7 @@
                 <div class="row mb-5">
                     <div class="col-12 text-center">
                         <span class="text-cursive h3 text-white d-block">Article</span>
-                        <h2 class="text-black">Our Article</h2>
+                        <h2 class="text-white">Our Article</h2>
                     </div>
                 </div>
 
@@ -255,9 +260,10 @@
                 <div class="row">
                     <div class="col-md-4">
                         <span class="text-cursive h5 text-red d-block">Visi Misi</span>
-                        <h2 class="text-black">Visi Misi TK Little Moslem</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quis cupiditate fugit,
-                            voluptatibus ullam, non laboriosam alias veniam, ex inventore iure sed?</p>
+                        <h2 class="text-black">Visi Misi TK Little Moslem Bojongsoang</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque nostrum ducimus similique
+                            neque debitis voluptatum vitae tempore, sapiente, nemo itaque omnis saepe ut labore quia
+                            beatae nam rerum accusamus reprehenderit.</p>
                     </div>
                     {{-- <div class="col-md-4">
                         <div class="pricing teal">
@@ -289,14 +295,16 @@
                     </div> --}}
                     @foreach ($data_visi as $row)
                         @php
-                            if ($row['id'] % 2 == 0) {
+                            if ($row['id'] % 3 == 0) {
                                 $color = 'pricing teal';
                                 $dataicon = 'icon-home';
                                 $btn = 'btn btn-teal btn-custom-1 mt-4';
+                                $tail = 'ul-check list-unstyled success';
                             } else {
                                 $color = 'pricing danger';
                                 $dataicon = 'icon-cog';
                                 $btn = 'btn btn-danger btn-custom-1 mt-4';
+                                $tail = 'ul-check list-unstyled danger';
                             }
                         @endphp
                         <div class="col-md-4">
@@ -305,10 +313,10 @@
                                     <span class="{{ $dataicon }}" style="color: white;"></span>
                                 </span>
                                 <h3>{{ $row->judul }}</h3>
-                                <ul class="ul-check list-unstyled danger">
+                                <ul class="{{ $tail }}">
                                     <li>{{ $row->content }}</li>
                                 </ul>
-                                <p><a href="#" class="{{ $btn }}">Buy Now</a></p>
+                                <p><a href="#" class="{{ $btn }}">Learn More</a></p>
                             </div>
                         </div>
                     @endforeach
@@ -316,7 +324,7 @@
             </div>
         </div>
 
-        <div class="site-section bg-light">
+        {{-- <div class="site-section bg-light">
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-12 text-center">
@@ -400,10 +408,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
 
-        <div class="site-section py-5 bg-warning">
+        {{-- <div class="site-section py-5 bg-warning">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-12 d-flex">
@@ -412,7 +420,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
 
 
@@ -420,10 +428,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4">
-                        <h2 class="footer-heading mb-3">About Us</h2>
-                        <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and
-                            Consonantia, there live the blind texts. </p>
-
+                        @foreach ($data_about as $row)
+                            <h2 class="footer-heading mb-3">{{ $row->judul }}</h2>
+                            <p class="mb-5">{{ $row->content }}</p>
+                        @endforeach
                         <h2 class="footer-heading mb-4">Newsletter</h2>
                         <form action="#" class="d-flex" class="subscribe">
                             <input type="text" class="form-control mr-3" placeholder="Email">
