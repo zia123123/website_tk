@@ -112,12 +112,12 @@
         </div>
 
 
-        <div class="site-section">
+        <div class="site-section bg-success">
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-12 text-center">
-                        <span class="text-cursive h5 text-red d-block">Our Gallery</span>
-                        <h2 class="text-black">Gallery Of The Kids</h2>
+                        <span class="text-cursive h5 text-white d-block">Our Gallery</span>
+                        <h2 class="text-white">Gallery Of The Kids</h2>
                     </div>
                 </div>
                 <div class="row">
@@ -161,10 +161,20 @@
                         <img src="{{ asset('vendor/secondaryasset/images/img_1.jpg') }}" alt="Image"
                             class="img-fluid">
                     </div> --}}
-                    @foreach ($data_galeri as $row)
+                    {{-- @foreach ($data_galeri as $row)
                         <div class="col-md-3 mb-4">
                             <a href="{{ asset($row->filename) }}" data-fancybox="gal"><img
                                     src="{{ asset($row->filename) }}" alt="Image" class="img-fluid"></a>
+                        </div>
+                    @endforeach --}}
+                    @foreach ($data_galeri as $row)
+                        <div class="col-lg-4 mt-2">
+                            <div class="package text-center bg-white">
+                                <img src="{{ asset($row->filename) }}" alt="Image" class="img-fluid"
+                                    style="width: 18rem;">
+                                <h3 class="text-danger mt-2">{{ $row->judul }}</h3>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            </div>
                         </div>
                     @endforeach
                 </div>

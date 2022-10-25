@@ -94,19 +94,19 @@
 
         <div class="ftco-blocks-cover-1">
 
-            <div class="site-section-cover overlay">
+            <div class="site-section-cover bg-info overlay">
                 <div class="container">
                     <div class="row align-items-center ">
                         <div class="col-md-5 mt-5 pt-5">
                             <span class="text-cursive h5 text-red">Welcome To Our Website</span>
-                            <h1 class="mb-3 font-weight-bold text-teal">Bring Fun Life To Your Kids</h1>
+                            <h1 class="mb-3 font-weight-bold text-teal">KREATIF, INOVATIF,TAQWA dan AMANAH.</h1>
                             <p>Amazing Playground for your kids</p>
-                            <p class="mt-5"><a href="#" class="btn btn-primary py-4 btn-custom-1">Learn More</a>
+                            {{-- <p class="mt-5"><a href="#" class="btn btn-primary py-4 btn-custom-1">Learn More</a> --}}
                             </p>
                         </div>
-                        <div class="col-md-6 ml-auto align-self-end">
-                            <img src="{{ asset('vendor/secondaryasset/images/kid_transparent.png') }}" alt="Image"
-                                class="img-fluid">
+                        <div class="col-md-6 ml-auto align-self-end mb-5 ">
+                            <img src="{{ asset('vendor/secondaryasset/images/img_background.png') }}" alt="Image"
+                                class="img-fluid square rounded">
 
                         </div>
                     </div>
@@ -185,7 +185,7 @@
             </div>
         </div>
         {{-- about us  --}}
-        <div class="site-section bg-light">
+        <div class="site-section bg-dark">
             <div class="container">
                 <div class="row">
                     @foreach ($data_about as $row)
@@ -194,11 +194,8 @@
                         </div>
                         <div class="col-md-5 ml-auto pl-md-5">
                             <span class="text-cursive h5 text-red">{{ $row->judul }}</span>
-                            <h3 class="text-black">TK Little Moslem Bojongsoang</h3>
-                            <p><span>{{ $row->content }}</span></p>
-
-                            <p class="mt-5"><a href="#" class="btn btn-warning py-4 btn-custom-1">More About
-                                    Us</a></p>
+                            <h3 class="text-white">TK Little Moslem Bojongsoang</h3>
+                            <p><span class="text-white">{{ $row->content }}</span></p>
                         </div>
                     @endforeach
 
@@ -207,7 +204,7 @@
         </div>
 
         {{-- article list --}}
-        <div class="site-section bg-info">
+        <div class="site-section bg-warning">
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-12 text-center">
@@ -220,9 +217,9 @@
                     @foreach ($data as $row)
                         <div class="col-lg-4 mb-4 mb-lg-0">
                             <div class="package text-center bg-white">
-                                <span class="img-wrap"><img src="{{ asset($row->filename) }}" alt="Image"
-                                        class="img-fluid" style="width:100px;"></span>
-                                <h3 class="text-teal">{{ $row->judul }}</h3>
+                                <img src="{{ asset($row->filename) }}" alt="Image" class="img-fluid"
+                                    style="width: 10rem;">
+                                <h3 class="text-teal mt-2">{{ $row->judul }}</h3>
                                 <p>{{ $row->content }}</p>
                                 <p><a href="/detailarticlelanding/{{ $row->id }}"
                                         class="btn btn-primary btn-custom-1 mt-4">Learn More</a></p>
@@ -316,7 +313,7 @@
                                 <ul class="{{ $tail }}">
                                     <li>{{ $row->content }}</li>
                                 </ul>
-                                <p><a href="#" class="{{ $btn }}">Learn More</a></p>
+                                {{-- <p><a href="#" class="{{ $btn }}">Learn More</a></p> --}}
                             </div>
                         </div>
                     @endforeach

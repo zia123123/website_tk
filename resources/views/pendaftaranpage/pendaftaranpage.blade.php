@@ -149,10 +149,9 @@
                             <ul class="list-unstyled footer-link">
                                 <li class="d-block mb-3">
                                     <span class="d-block text-black">Address:</span>
-                                    <span>34 Street Name, City Name Here, United States</span>
+                                    <span>Komp. Griya Permata Asri Blok A9 no. 10 Bojongsoang</span>
                                 </li>
-                                <li class="d-block mb-3"><span class="d-block text-black">Phone:</span><span>+1 242
-                                        4942 290</span></li>
+                                <li class="d-block mb-3"><span class="d-block text-black">Phone:</span><span>+628170234258</span></li>
                                 <li class="d-block mb-3"><span
                                         class="d-block text-black">Email:</span><span>info@yourdomain.com</span></li>
                             </ul>

@@ -122,20 +122,12 @@
                 </div>
                 <div class="row">
                     @foreach ($data_berita as $row)
-                        @php
-                            if ($row['id'] % 2 == 0) {
-                                $color = 'text-teal';
-                            } else {
-                                $color = 'text-purple';
-                            }
-                        @endphp
-                        <div class="col-lg-4 mb-4">
-                            <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="{{ asset($row->filename) }}" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $row->judul }}</h5>
-                                    <p class="card-text mb-2">{{ $row->content }}</p>
-                                </div>
+                        <div class="col-lg-4 mt-2">
+                            <div class="package text-center bg-white">
+                                <img src="{{ asset($row->filename) }}" alt="Image" class="img-fluid"
+                                    style="width: 18rem;">
+                                <h3 class="text-danger mt-2">{{ $row->judul }}</h3>
+                                <p>{{ $row->content }}</p>
                             </div>
                         </div>
                     @endforeach

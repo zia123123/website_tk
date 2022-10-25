@@ -168,11 +168,9 @@
                         @endphp
                         <div class="col-lg-4 mt-2">
                             <div class="package text-center bg-white">
-                                <span class="img-wrap"><img src="{{ asset($row->filename) }}" alt="Image"
-                                        class="img-fluid"></span>
-                                <h3 class="text-danger">{{ $row->namaprogram }}</h3>
+                                <img src="{{ asset($row->filename) }}" alt="Image" class="img-fluid" style="width: 18rem;">
+                                <h3 class="text-danger mt-2">{{ $row->namaprogram }}</h3>
                                 <p>{{ $row->deskripsi }}</p>
-                                <p><a href="#" class="{{ $class }}">Learn More</a></p>
                             </div>
                         </div>
                     @endforeach
