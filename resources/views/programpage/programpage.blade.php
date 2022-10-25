@@ -45,7 +45,8 @@
             <div class="container mb-3">
                 <div class="d-flex align-items-center">
                     <div class="site-logo mr-auto">
-                        <a href="{{ route('/') }}">TK Litte Moslem<span class="text-primary">.</span></a>
+                        <a href="{{ route('/') }}" style="font-size: 35px">TKIT Little Moslem<span
+                                class="text-primary">.</span></a>
                     </div>
                     <div class="site-quick-contact d-none d-lg-flex ml-auto ">
                         <div class="d-flex site-info align-items-center mr-5">
@@ -83,9 +84,6 @@
 
                     <div class="top-social ml-auto">
                         <a href="#"><span class="icon-facebook text-teal"></span></a>
-                        <a href="#"><span class="icon-twitter text-success"></span></a>
-                        <a href="#"><span class="icon-linkedin text-yellow"></span></a>
-                        <a href="{{ route('login') }}" class="btn btn-primary">Sign in</a>
                     </div>
                 </div>
             </div>
@@ -102,9 +100,9 @@
                     <div class="row align-items-center ">
 
                         <div class="col-md-5 mt-5 pt-5">
-                            <span class="text-cursive h5 text-red">Welcome To Our Website</span>
+                            <span class="text-cursive h5 text-white">Welcome To Our Website</span>
                             <h1 class="mb-3 font-weight-bold text-teal">Program</h1>
-                            <p><a href="{{ route('/') }}" class="text-white">Home</a> <span class="mx-3">/</span>
+                            <p><a href="{{ route('/') }}" class="text-red">Home</a> <span class="mx-3">/</span>
                                 <strong>Program</strong>
                             </p>
                         </div>
@@ -119,7 +117,7 @@
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-12 text-center">
-                        <span class="text-cursive h5 text-red d-block">Program You Like</span>
+                        <span class="text-cursive h5 text-white d-block">Program You Like</span>
                         <h2 class="text-white">Our Program</h2>
                     </div>
                 </div>
@@ -168,7 +166,7 @@
                                 $class = 'btn btn-primary btn-custom-1 mt-4';
                             }
                         @endphp
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 mt-2">
                             <div class="package text-center bg-white">
                                 <span class="img-wrap"><img src="{{ asset($row->filename) }}" alt="Image"
                                         class="img-fluid"></span>
@@ -182,7 +180,7 @@
             </div>
         </div>
 
-        <div class="site-section bg-light">
+        {{-- <div class="site-section bg-light">
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-12 text-center">
@@ -266,9 +264,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
-
+        {{--
         <div class="site-section py-5 bg-warning">
             <div class="container">
                 <div class="row justify-content-center">
@@ -278,16 +276,17 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
 
         <footer class="site-footer">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4">
-                        <h2 class="footer-heading mb-3">About Us</h2>
-                        <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and
-                            Consonantia, there live the blind texts. </p>
+                        @foreach ($data_about as $row)
+                            <h2 class="footer-heading mb-3">{{ $row->judul }}</h2>
+                            <p class="mb-5">{{ $row->content }}</p>
+                        @endforeach
 
                         <h2 class="footer-heading mb-4">Newsletter</h2>
                         <form action="#" class="d-flex" class="subscribe">
