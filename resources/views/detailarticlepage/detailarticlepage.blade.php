@@ -120,14 +120,11 @@
                         <span class="text-cursive h5 text-red">{{ $data_article->judul }}</span>
                         <h3 class="text-black">Bring Fun Life To Your Kids</h3>
                         <p><span>{{ $data_article->content }}</span></p>
-
-                        <p class="mt-5"><a href="#" class="btn btn-warning py-4 btn-custom-1">More About
-                                Us</a></p>
                     </div>
                 </div>
             </div>
         </div>
-
+{{--
         <div class="site-section bg-info">
             <div class="container">
                 <div class="row mb-5">
@@ -224,7 +221,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
 
         <footer class="site-footer">
