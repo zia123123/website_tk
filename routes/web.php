@@ -9,6 +9,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\DetailArticleController;
+use App\Http\Controllers\DetailGaleriController;
 use App\Http\Controllers\VisimisiController;
 
 use App\Http\Controllers\KegiatanController;
@@ -35,6 +36,7 @@ Route::get('/galerilanding', [LandingPageController::class, 'galerilanding'])->n
 Route::get('/pendaftaranlanding', [LandingPageController::class, 'pendaftaranlanding'])->name('/pendaftaranlanding');
 Route::get('/beritalanding', [LandingPageController::class, 'beritalanding'])->name('/beritalanding');
 Route::get('/detailarticlelanding/{id}', [DetailArticleController::class, 'detailarticlelanding'])->name('/detailarticlelanding');
+Route::get('/detailgalerilanding/{id}', [DetailGaleriController::class, 'detailgalerilanding'])->name('/detailgalerilanding');
 
 Auth::routes();
 
