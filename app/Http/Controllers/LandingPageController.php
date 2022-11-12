@@ -31,25 +31,25 @@ class LandingPageController extends Controller
     {
         $data_program = Program::all();
         $data_about = About::all();
-        return view('/programpage/programpage', compact('data_program','data_about'));
+        return view('/programpage/programpage', compact('data_program', 'data_about'));
     }
     public function beritalanding()
     {
-        $data_berita = Kegiatan::all();
+        $data_berita = Kegiatan::paginate(3);
         $data_about = About::all();
-        return view('/beritapage/beritapage',compact('data_berita','data_about'));
+        return view('/beritapage/beritapage', compact('data_berita', 'data_about'));
     }
     public function pendaftaranlanding()
     {
         $data_pendaftaran = Programpendaftaran::all();
         $data_about = About::all();
-        return view('/pendaftaranpage/pendaftaranpage', compact('data_pendaftaran','data_about'));
+        return view('/pendaftaranpage/pendaftaranpage', compact('data_pendaftaran', 'data_about'));
     }
     public function galerilanding()
     {
         $data_galeri = Gallery::all();
         $data_about = About::all();
-        return view('/galeripage/galeripage', compact('data_galeri','data_about'));
+        return view('/galeripage/galeripage', compact('data_galeri', 'data_about'));
     }
 
     /**

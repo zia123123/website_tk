@@ -94,7 +94,7 @@
         <div class="ftco-blocks-cover-1">
             <!-- data-stellar-background-ratio="0.5" style="background-image: url('images/hero_1.jpg')" -->
             <div class="site-section-cover overlay" data-stellar-background-ratio="0.5"
-                style="background-image: url('{{ asset('vendor/secondaryasset/images/hero_1.jpg') }}')">
+                style="background-image: url('{{ asset('vendor/secondaryasset/images/bg_01.jpg') }}')">
                 <div class="container">
                     <div class="row align-items-center ">
 
@@ -128,6 +128,8 @@
                                     style="width: 18rem;">
                                 <h3 class="text-danger mt-2">{{ $row->judul }}</h3>
                                 <p>{{ $row->content }}</p>
+                                <p><a href="/detailberitapage/{{ $row->id }}"
+                                        class="btn btn-primary btn-custom-1 mt-4">Lihat detail</a></p>
                             </div>
                         </div>
                     @endforeach
@@ -242,39 +244,19 @@
                             <h2 class="footer-heading mb-3">{{ $row->judul }}</h2>
                             <p class="mb-5">{{ $row->content }}</p>
                         @endforeach
-
-                        <h2 class="footer-heading mb-4">Newsletter</h2>
-                        <form action="#" class="d-flex" class="subscribe">
-                            <input type="text" class="form-control mr-3" placeholder="Email">
-                            <input type="submit" value="Send" class="btn btn-primary">
-                        </form>
                     </div>
                     <div class="col-lg-8 ml-auto">
                         <div class="row">
                             <div class="col-lg-4 ml-auto">
-                                <h2 class="footer-heading mb-4">Navigation</h2>
+                                <h2 class="footer-heading mb-4">Alamat :</h2>
                                 <ul class="list-unstyled">
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Testimonials</a></li>
-                                    <li><a href="#">Terms of Service</a></li>
-                                    <li><a href="#">Privacy</a></li>
-                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Komp. Griya Permata Asri Blok A9 no. 10 Bojongsoang</a></li>
+                                </ul>
+                                <h2 class="footer-heading mb-4">Email :</h2>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">info@yourdomain.com</a></li>
                                 </ul>
                             </div>
-                            <div class="col-lg-4">
-                                <h2 class="footer-heading mb-4">Navigation</h2>
-                                <ul class="list-unstyled">
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Testimonials</a></li>
-                                    <li><a href="#">Terms of Service</a></li>
-                                    <li><a href="#">Privacy</a></li>
-                                    <li><a href="#">Contact Us</a></li>
-                                </ul>
-
-                            </div>
-
-
-
                         </div>
                     </div>
                 </div>
