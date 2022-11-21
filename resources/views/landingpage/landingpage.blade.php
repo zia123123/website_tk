@@ -83,7 +83,7 @@
 
                     <div class="top-social ml-auto">
                         <a href="#"><span class="icon-facebook text-teal"></span></a>
-                        <a href="{{ route('login') }}" class="btn btn-primary">Sign in</a>
+                        {{-- <a href="{{ route('login') }}" class="btn btn-primary">Sign in</a> --}}
                     </div>
                 </div>
             </div>
@@ -92,8 +92,7 @@
 
         </header>
 
-        <div class="ftco-blocks-cover-1">
-
+        {{-- <div class="ftco-blocks-cover-1">
             <div class="site-section-cover bg-info overlay">
                 <div class="container">
                     <div class="row align-items-center ">
@@ -101,7 +100,6 @@
                             <span class="text-cursive h5 text-red">Welcome To Our Website</span>
                             <h1 class="mb-3 font-weight-bold text-teal">KREATIF, INOVATIF,TAQWA dan AMANAH.</h1>
                             <p>Amazing Playground for your kids</p>
-                            {{-- <p class="mt-5"><a href="#" class="btn btn-primary py-4 btn-custom-1">Learn More</a> --}}
                             </p>
                         </div>
                         <div class="col-md-6 ml-auto align-self-end mb-5 ">
@@ -109,6 +107,23 @@
                                 class="img-fluid square rounded">
 
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+        <div class="ftco-blocks-cover-1">
+            <!-- data-stellar-background-ratio="0.5" style="background-image: url('images/hero_1.jpg')" -->
+            <div class="site-section-cover overlay" data-stellar-background-ratio="0.5"
+                style="background-image: url('{{ asset('vendor/secondaryasset/images/bg_01.jpg') }}')">
+                <div class="container">
+                    <div class="row align-items-center ">
+
+                        <div class="col-md-5 mt-5 pt-5">
+                            <span class="text-cursive h5 text-white">Welcome To Our Website</span>
+                            <h1 class="mb-3 font-weight-bold text-teal">KREATIF, INOVATIF,TAQWA dan AMANAH.</h1>
+                            <p>Amazing Playground for your kids</p>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -222,7 +237,7 @@
                                 <h3 class="text-teal mt-2">{{ $row->judul }}</h3>
                                 <p>{{ $row->content }}</p>
                                 <p><a href="/detailarticlelanding/{{ $row->id }}"
-                                        class="btn btn-primary btn-custom-1 mt-4">Learn More</a></p>
+                                        class="btn btn-primary btn-custom-1 mt-4">Lihat detail</a></p>
                             </div>
                         </div>
                     @endforeach
@@ -429,38 +444,19 @@
                             <h2 class="footer-heading mb-3">{{ $row->judul }}</h2>
                             <p class="mb-5">{{ $row->content }}</p>
                         @endforeach
-                        <h2 class="footer-heading mb-4">Newsletter</h2>
-                        <form action="#" class="d-flex" class="subscribe">
-                            <input type="text" class="form-control mr-3" placeholder="Email">
-                            <input type="submit" value="Send" class="btn btn-primary">
-                        </form>
                     </div>
                     <div class="col-lg-8 ml-auto">
                         <div class="row">
                             <div class="col-lg-4 ml-auto">
-                                <h2 class="footer-heading mb-4">Navigation</h2>
+                                <h2 class="footer-heading mb-4">Alamat :</h2>
                                 <ul class="list-unstyled">
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Testimonials</a></li>
-                                    <li><a href="#">Terms of Service</a></li>
-                                    <li><a href="#">Privacy</a></li>
-                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Komp. Griya Permata Asri Blok A9 no. 10 Bojongsoang</a></li>
+                                </ul>
+                                <h2 class="footer-heading mb-4">Email :</h2>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">info@yourdomain.com</a></li>
                                 </ul>
                             </div>
-                            <div class="col-lg-4">
-                                <h2 class="footer-heading mb-4">Navigation</h2>
-                                <ul class="list-unstyled">
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Testimonials</a></li>
-                                    <li><a href="#">Terms of Service</a></li>
-                                    <li><a href="#">Privacy</a></li>
-                                    <li><a href="#">Contact Us</a></li>
-                                </ul>
-
-                            </div>
-
-
-
                         </div>
                     </div>
                 </div>

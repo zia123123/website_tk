@@ -72,15 +72,14 @@
 
                     <nav class="site-navigation text-left mr-auto d-none d-lg-block" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto ">
-                            <li><a href="{{ route('/') }}" class="btn btn-primary" style="width: 150px;"><span class="text-white">Back</span></a>
+                            <li><a href="{{ route('/') }}" class="btn btn-primary" style="width: 150px;"><span
+                                        class="text-white">Back</span></a>
                             </li>
                         </ul>
                     </nav>
 
                     <div class="top-social ml-auto">
                         <a href="#"><span class="icon-facebook text-teal"></span></a>
-                        <a href="#"><span class="icon-twitter text-success"></span></a>
-                        <a href="#"><span class="icon-linkedin text-yellow"></span></a>
                     </div>
                 </div>
             </div>
@@ -92,14 +91,14 @@
         <div class="ftco-blocks-cover-1">
             <!-- data-stellar-background-ratio="0.5" style="background-image: url('images/hero_1.jpg')" -->
             <div class="site-section-cover overlay" data-stellar-background-ratio="0.5"
-                style="background-image: url('{{ asset('vendor/secondaryasset/images/hero_1.jpg') }}')">
+                style="background-image: url('{{ asset('vendor/secondaryasset/images/bg_01.jpg') }}')">
                 <div class="container">
                     <div class="row align-items-center ">
 
                         <div class="col-md-5 mt-5 pt-5">
-                            <span class="text-cursive h5 text-red">Welcome To Our Website</span>
+                            <span class="text-cursive h5 text-white">Welcome To Our Website</span>
                             <h1 class="mb-3 font-weight-bold text-teal">Detail Article</h1>
-                            <p><a href="{{ route('/') }}" class="text-white">Home</a> <span class="mx-3">/</span>
+                            <p><a href="{{ route('/') }}" class="text-red">Home</a> <span class="mx-3">/</span>
                                 <strong>Detail Article</strong>
                             </p>
                         </div>
@@ -124,7 +123,7 @@
                 </div>
             </div>
         </div>
-{{--
+        {{--
         <div class="site-section bg-info">
             <div class="container">
                 <div class="row mb-5">
@@ -231,37 +230,19 @@
                         <h2 class="footer-heading mb-3">About Us</h2>
                         <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and
                             Consonantia, there live the blind texts. </p>
-
-                        <h2 class="footer-heading mb-4">Newsletter</h2>
-                        <form action="#" class="d-flex" class="subscribe">
-                            <input type="text" class="form-control mr-3" placeholder="Email">
-                            <input type="submit" value="Send" class="btn btn-primary">
-                        </form>
                     </div>
                     <div class="col-lg-8 ml-auto">
                         <div class="row">
                             <div class="col-lg-4 ml-auto">
-                                <h2 class="footer-heading mb-4">Navigation</h2>
+                                <h2 class="footer-heading mb-4">Alamat :</h2>
                                 <ul class="list-unstyled">
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Testimonials</a></li>
-                                    <li><a href="#">Terms of Service</a></li>
-                                    <li><a href="#">Privacy</a></li>
-                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Komp. Griya Permata Asri Blok A9 no. 10 Bojongsoang</a></li>
+                                </ul>
+                                <h2 class="footer-heading mb-4">Email :</h2>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">info@yourdomain.com</a></li>
                                 </ul>
                             </div>
-                            <div class="col-lg-4">
-                                <h2 class="footer-heading mb-4">Navigation</h2>
-                                <ul class="list-unstyled">
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Testimonials</a></li>
-                                    <li><a href="#">Terms of Service</a></li>
-                                    <li><a href="#">Privacy</a></li>
-                                    <li><a href="#">Contact Us</a></li>
-                                </ul>
-
-                            </div>
-
 
 
                         </div>

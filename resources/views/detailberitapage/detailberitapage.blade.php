@@ -45,8 +45,7 @@
             <div class="container mb-3">
                 <div class="d-flex align-items-center">
                     <div class="site-logo mr-auto">
-                        <a href="{{ route('/') }}" style="font-size: 35px">TKIT Little Moslem<span
-                                class="text-primary">.</span></a>
+                        <a href="{{ route('/') }}">TK Litte Moslem<span class="text-primary">.</span></a>
                     </div>
                     <div class="site-quick-contact d-none d-lg-flex ml-auto ">
                         <div class="d-flex site-info align-items-center mr-5">
@@ -73,11 +72,9 @@
 
                     <nav class="site-navigation text-left mr-auto d-none d-lg-block" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto ">
-                            <li><a href="{{ route('/') }}" class="nav-link">Beranda</a></li>
-                            <li><a href="{{ route('/programlanding') }}" class="nav-link">Program</a></li>
-                            <li class="active"><a href="{{ route('/galerilanding') }}" class="nav-link">Galeri</a></li>
-                            <li><a href="{{ route('/pendaftaranlanding') }}" class="nav-link">Pendaftaran</a></li>
-                            <li><a href="{{ route('/beritalanding') }}" class="nav-link">Berita</a></li>
+                            <li><a href="{{ route('/') }}" class="btn btn-primary" style="width: 150px;"><span
+                                        class="text-white">Back</span></a>
+                            </li>
                         </ul>
                     </nav>
 
@@ -99,10 +96,10 @@
                     <div class="row align-items-center ">
 
                         <div class="col-md-5 mt-5 pt-5">
-                            <span class="text-cursive h5 text-white">Gallery</span>
-                            <h1 class="mb-3 font-weight-bold text-teal">Gallery Of Kids</h1>
+                            <span class="text-cursive h5 text-white">Welcome To Our Website</span>
+                            <h1 class="mb-3 font-weight-bold text-teal">Detail Berita</h1>
                             <p><a href="{{ route('/') }}" class="text-red">Home</a> <span class="mx-3">/</span>
-                                <strong>Gallery</strong>
+                                <strong>Detail Berita</strong>
                             </p>
                         </div>
 
@@ -112,82 +109,109 @@
         </div>
 
 
-        <div class="site-section bg-success">
+        <div class="site-section bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mb-5 mb-md-0">
+                        <img src="{{ asset($data_berita->filename) }}" alt="Image" class="img-fluid">
+                    </div>
+                    <div class="col-md-5 ml-auto pl-md-5">
+                        <span class="text-cursive h5 text-red">{{ $data_berita->judul }}</span>
+                        <h3 class="text-black">Bring Fun Life To Your Kids</h3>
+                        {{-- <p><span>{{ $data_berita->content }}</span></p> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{--
+        <div class="site-section bg-info">
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-12 text-center">
-                        <span class="text-cursive h5 text-white d-block">Our Gallery</span>
-                        <h2 class="text-white">Gallery Of The Kids</h2>
+                        <span class="text-cursive h5 text-white d-block">Testimonial</span>
+                        <h2 class="text-black">What Our Client Says About Us</h2>
                     </div>
                 </div>
-                <div class="row">
-                    {{-- <div class="col-md-3 mb-4">
-                        <a href="{{ asset('vendor/secondaryasset/images/img_2.jpg') }}" data-fancybox="gal"><img
-                                src="{{ asset('vendor/secondaryasset/images/img_2.jpg') }}" alt="Image"
-                                class="img-fluid"></a>
-                    </div>
-                    <div class="col-md-3 mb-4">
-                        <a href="{{ asset('vendor/secondaryasset/images/img_2.jpg') }}" data-fancybox="gal"><img
-                                src="{{ asset('vendor/secondaryasset/images/img_2.jpg') }}" alt="Image"
-                                class="img-fluid"></a>
-                    </div>
-                    <div class="col-md-3 mb-4">
-                        <a href="{{ asset('vendor/secondaryasset/images/img_3.jpg') }}" data-fancybox="gal"><img
-                                src="{{ asset('vendor/secondaryasset/images/img_3.jpg') }}" alt="Image"
-                                class="img-fluid"></a>
-                    </div>
-                    <div class="col-md-3 mb-4">
-                        <a href="{{ asset('vendor/secondaryasset/images/img_4.jpg') }}" data-fancybox="gal"><img
-                                src="{{ asset('vendor/secondaryasset/images/img_4.jpg') }}" alt="Image"
-                                class="img-fluid"></a>
-                    </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="testimonial-3-wrap">
 
-                    <div class="col-md-3 mb-4">
-                        <a href="{{ asset('vendor/secondaryasset/images/img_5.jpg') }}" data-fancybox="gal"><img
-                                src="{{ asset('vendor/secondaryasset/images/img_5.jpg') }}" alt="Image"
-                                class="img-fluid"></a>
-                    </div>
-                    <div class="col-md-3 mb-4">
-                        <a href="{{ asset('vendor/secondaryasset/images/img_3.jpg') }}" data-fancybox="gal"><img
-                                src="{{ asset('vendor/secondaryasset/images/img_3.jpg') }}" alt="Image"
-                                class="img-fluid"></a>
-                    </div>
-                    <div class="col-md-3 mb-4">
-                        <a href="{{ asset('vendor/secondaryasset/images/img_2.jpg') }}" data-fancybox="gal"><img
-                                src="{{ asset('vendor/secondaryasset/images/img_2.jpg') }}" alt="Image"
-                                class="img-fluid"></a>
-                    </div>
-                    <div class="col-md-3 mb-4">
-                        <img src="{{ asset('vendor/secondaryasset/images/img_1.jpg') }}" alt="Image"
-                            class="img-fluid">
-                    </div> --}}
-                    {{-- @foreach ($data_galeri as $row)
-                        <div class="col-md-3 mb-4">
-                            <a href="{{ asset($row->filename) }}" data-fancybox="gal"><img
-                                    src="{{ asset($row->filename) }}" alt="Image" class="img-fluid"></a>
+
+                            <div class="owl-carousel nonloop-block-13">
+                                <div class="testimonial-3 d-flex">
+                                    <div class="vcard-wrap mr-5">
+                                        <img src="{{ asset('vendor/secondaryasset/images/person_1.jpg') }}"
+                                            alt="Image" class="vcard img-fluid">
+                                    </div>
+                                    <div class="text">
+                                        <h3>Jeff Woodland</h3>
+                                        <p class="position">Partner</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam earum
+                                            libero rem maxime magnam. Similique esse ab earum, autem consectetur.</p>
+                                    </div>
+                                </div>
+
+                                <div class="testimonial-3 d-flex">
+                                    <div class="vcard-wrap mr-5">
+                                        <img src="{{ asset('vendor/secondaryasset/images/person_3.jpg') }}"
+                                            alt="Image" class="vcard img-fluid">
+                                    </div>
+                                    <div class="text">
+                                        <h3>Jeff Woodland</h3>
+                                        <p class="position">Partner</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam earum
+                                            libero rem maxime magnam. Similique esse ab earum, autem consectetur.</p>
+                                    </div>
+                                </div>
+
+                                <div class="testimonial-3 d-flex">
+                                    <div class="vcard-wrap mr-5">
+                                        <img src="{{ asset('vendor/secondaryasset/images/person_2.jpg') }}"
+                                            alt="Image" class="vcard img-fluid">
+                                    </div>
+                                    <div class="text">
+                                        <h3>Jeff Woodland</h3>
+                                        <p class="position">Partner</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam earum
+                                            libero rem maxime magnam. Similique esse ab earum, autem consectetur.</p>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-                    @endforeach --}}
-                    @foreach ($data_galeri as $row)
-                        <div class="col-lg-4 mt-2">
-                            <div class="package text-center bg-white">
-                                <img src="{{ asset($row->filename) }}" alt="Image" class="img-fluid"
-                                    style="width: 18rem;">
-                                <h3 class="text-danger mt-2">{{ $row->judul }}</h3>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p><a href="/detailberitapage/{{ $row->id }}"
-                                        class="btn btn-primary btn-custom-1 mt-4">Lihat detail</a></p>
+                    </div>
+                </div>
+                <div class="row mt-5 justify-content-center">
+
+                    <div class="col-md-8">
+
+
+                        <div class="row">
+                            <div class="col-lg-3 text-center">
+                                <span class="text-teal h2 d-block">3423</span>
+                                <span>Happy Client</span>
+                            </div>
+                            <div class="col-lg-3 text-center">
+                                <span class="text-yellow h2 d-block">4398</span>
+                                <span>Members</span>
+                            </div>
+                            <div class="col-lg-3 text-center">
+                                <span class="text-success h2 d-block">50+</span>
+                                <span>Staffs</span>
+                            </div>
+                            <div class="col-lg-3 text-center">
+                                <span class="text-danger h2 d-block">2000+</span>
+                                <span>Our Followers</span>
                             </div>
                         </div>
-                    @endforeach
+
+                    </div>
                 </div>
             </div>
         </div>
 
 
-
-
-
-        {{-- <div class="site-section py-5 bg-warning">
+        <div class="site-section py-5 bg-warning">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-12 d-flex">
@@ -203,10 +227,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4">
-                        @foreach ($data_about as $row)
-                            <h2 class="footer-heading mb-3">{{ $row->judul }}</h2>
-                            <p class="mb-5">{{ $row->content }}</p>
-                        @endforeach
+                        <h2 class="footer-heading mb-3">About Us</h2>
+                        <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and
+                            Consonantia, there live the blind texts. </p>
                     </div>
                     <div class="col-lg-8 ml-auto">
                         <div class="row">
@@ -220,7 +243,6 @@
                                     <li><a href="#">info@yourdomain.com</a></li>
                                 </ul>
                             </div>
-
 
 
                         </div>
