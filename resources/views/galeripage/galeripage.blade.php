@@ -77,7 +77,7 @@
                             <li><a href="{{ route('/') }}" class="nav-link">Kelas</a></li>
                             <li><a href="{{ route('/programlanding') }}" class="nav-link">Program</a>
                             </li>
-                            <li><a href="{{ route('/programlanding') }}" class="nav-link">Kegiatan Harian</a></li>
+                            <li><a href="{{ route('/beritalanding') }}" class="nav-link">Kegiatan Harian</a></li>
                             <li class="active"><a href="{{ route('/galerilanding') }}" class="nav-link">Galeri</a></li>
                             <li><a href="{{ route('/pendaftaranlanding') }}" class="nav-link">Pendaftaran</a></li>
                         </ul>
