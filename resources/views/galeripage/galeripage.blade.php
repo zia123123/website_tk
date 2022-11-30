@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Kiddy &mdash; Website Template by Colorlib</title>
+    <title>TK IT Little Moslem.sch</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -45,7 +45,7 @@
             <div class="container mb-3">
                 <div class="d-flex align-items-center">
                     <div class="site-logo mr-auto">
-                        <a href="{{ route('/') }}" style="font-size: 35px">TKIT Little Moslem<span
+                        <a href="{{ route('/') }}" style="font-size: 35px">TK IT Little Moslem<span
                                 class="text-primary">.</span></a>
                     </div>
                     <div class="site-quick-contact d-none d-lg-flex ml-auto ">
@@ -74,10 +74,12 @@
                     <nav class="site-navigation text-left mr-auto d-none d-lg-block" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto ">
                             <li><a href="{{ route('/') }}" class="nav-link">Beranda</a></li>
-                            <li><a href="{{ route('/programlanding') }}" class="nav-link">Program</a></li>
+                            <li><a href="{{ route('/') }}" class="nav-link">Kelas</a></li>
+                            <li><a href="{{ route('/programlanding') }}" class="nav-link">Program</a>
+                            </li>
+                            <li><a href="{{ route('/programlanding') }}" class="nav-link">Kegiatan Harian</a></li>
                             <li class="active"><a href="{{ route('/galerilanding') }}" class="nav-link">Galeri</a></li>
                             <li><a href="{{ route('/pendaftaranlanding') }}" class="nav-link">Pendaftaran</a></li>
-                            <li><a href="{{ route('/beritalanding') }}" class="nav-link">Berita</a></li>
                         </ul>
                     </nav>
 
@@ -174,8 +176,8 @@
                                     style="width: 18rem;">
                                 <h3 class="text-danger mt-2">{{ $row->judul }}</h3>
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p><a href="/detailberitapage/{{ $row->id }}"
-                                        class="btn btn-primary btn-custom-1 mt-4">Lihat detail</a></p>
+                                <p><a href="/detailgalerilanding/{{ $row->id }}"
+                                        class="btn btn-primary btn-custom-1 mt-4">Baca selengkapnya</a></p>
                             </div>
                         </div>
                     @endforeach

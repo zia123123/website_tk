@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Kiddy &mdash; Website Template by Colorlib</title>
+    <title>TK IT Little Moslem.sch</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -44,7 +44,7 @@
             <div class="container mb-3">
                 <div class="d-flex align-items-center">
                     <div class="site-logo mr-auto">
-                        <a href="{{ route('/') }}" style="font-size: 35px">TKIT Little Moslem<span
+                        <a href="{{ route('/') }}" style="font-size: 35px">TK IT Little Moslem<span
                                 class="text-primary">.</span></a>
                     </div>
                     <div class="site-quick-contact d-none d-lg-flex ml-auto ">
@@ -73,11 +73,13 @@
                     <nav class="site-navigation text-left mr-auto d-none d-lg-block" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto ">
                             <li><a href="{{ route('/') }}" class="nav-link">Beranda</a></li>
-                            <li><a href="{{ route('/programlanding') }}" class="nav-link">Program</a></li>
+                            <li><a href="{{ route('/') }}" class="nav-link">Kelas</a></li>
+                            <li><a href="{{ route('/programlanding') }}" class="nav-link">Program</a>
+                            </li>
+                            <li><a href="{{ route('/programlanding') }}" class="nav-link">Kegiatan Harian</a></li>
                             <li><a href="{{ route('/galerilanding') }}" class="nav-link">Galeri</a></li>
                             <li class="active"><a href="{{ route('/pendaftaranlanding') }}"
                                     class="nav-link">Pendaftaran</a></li>
-                            <li><a href="{{ route('/beritalanding') }}" class="nav-link">Berita</a></li>
                         </ul>
                     </nav>
 
@@ -115,9 +117,9 @@
             <div class="container">
                 <div class="row justify-content-center text-center">
                     <div class="col-7 text-center mb-5">
-                        <h2>Get In Touch Using The Contact Form</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo assumenda, dolorum
-                            necessitatibus eius earum voluptates sed!</p>
+                        <h2>⭐Pendaftaran⭐</h2>
+                        {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo assumenda, dolorum
+                            necessitatibus eius earum voluptates sed!</p> --}}
                     </div>
                 </div>
                 <div class="row">

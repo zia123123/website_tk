@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Kiddy &mdash; Website Template by Colorlib</title>
+    <title>TK IT Little Moslem.sch</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -45,7 +45,7 @@
             <div class="container mb-3">
                 <div class="d-flex align-items-center">
                     <div class="site-logo mr-auto">
-                        <a href="{{ route('/') }}" style="font-size: 35px">TKIT Little Moslem<span
+                        <a href="{{ route('/') }}" style="font-size: 35px">TK IT Little Moslem<span
                                 class="text-primary">.</span></a>
                     </div>
                     <div class="site-quick-contact d-none d-lg-flex ml-auto ">
