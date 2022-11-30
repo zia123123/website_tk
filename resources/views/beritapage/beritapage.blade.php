@@ -74,10 +74,12 @@
                     <nav class="site-navigation text-left mr-auto d-none d-lg-block" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto ">
                             <li><a href="{{ route('/') }}" class="nav-link">Beranda</a></li>
+                            <li><a href="{{ route('/') }}" class="nav-link">Kelas</a></li>
                             <li><a href="{{ route('/programlanding') }}" class="nav-link">Program</a></li>
+                            <li class="active"><a href="{{ route('/beritalanding') }}" class="nav-link">Kegiatan
+                                    Harian</a></li>
                             <li><a href="{{ route('/galerilanding') }}" class="nav-link">Galeri</a></li>
                             <li><a href="{{ route('/pendaftaranlanding') }}" class="nav-link">Pendaftaran</a></li>
-                            <li class="active"><a href="{{ route('/beritalanding') }}" class="nav-link">Berita</a></li>
                         </ul>
                     </nav>
 
@@ -100,7 +102,7 @@
 
                         <div class="col-md-5 mt-5 pt-5">
                             <span class="text-cursive h5 text-white">Welcome To Our Website</span>
-                            <h1 class="mb-3 font-weight-bold text-teal">Berita</h1>
+                            <h1 class="mb-3 font-weight-bold text-teal">Kegiatan Harian</h1>
                             <p><a href="{{ route('/') }}" class="text-red">Home</a> <span class="mx-3">/</span>
                                 <strong>Berita</strong>
                             </p>
@@ -116,8 +118,8 @@
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-12 text-center">
-                        <span class="text-cursive h5 text-white d-block">News You Like</span>
-                        <h2 class="text-white">Our News</h2>
+                        <span class="text-cursive h5 text-white d-block">Acitivty</span>
+                        <h2 class="text-white">Kegiatan Harian</h2>
                     </div>
                 </div>
                 <div class="row">
@@ -128,8 +130,8 @@
                                     style="width: 18rem;">
                                 <h3 class="text-danger mt-2">{{ $row->judul }}</h3>
                                 <p>{{ $row->content }}</p>
-                                <p><a href="/detailberitapage/{{ $row->id }}"
-                                        class="btn btn-primary btn-custom-1 mt-4">Lihat detail</a></p>
+                                {{-- <p><a href="/detailberitapage/{{ $row->id }}"
+                                        class="btn btn-primary btn-custom-1 mt-4">Lihat detail</a></p> --}}
                             </div>
                         </div>
                     @endforeach
