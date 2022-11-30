@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Kiddy &mdash; Website Template by Colorlib</title>
+    <title>TK IT Little Moslem.sch</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -45,7 +45,7 @@
             <div class="container mb-3">
                 <div class="d-flex align-items-center">
                     <div class="site-logo mr-auto">
-                        <a href="{{ route('/') }}" style="font-size: 35px">TKIT Little Moslem<span
+                        <a href="{{ route('/') }}" style="font-size: 35px">TK IT Little Moslem<span
                                 class="text-primary">.</span></a>
                     </div>
                     <div class="site-quick-contact d-none d-lg-flex ml-auto ">
@@ -74,11 +74,12 @@
                     <nav class="site-navigation text-left mr-auto d-none d-lg-block" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto ">
                             <li><a href="{{ route('/') }}" class="nav-link">Beranda</a></li>
+                            <li><a href="{{ route('/') }}" class="nav-link">Kelas</a></li>
                             <li class="active"><a href="{{ route('/programlanding') }}" class="nav-link">Program</a>
                             </li>
+                            <li><a href="{{ route('/programlanding') }}" class="nav-link">Kegiatan Harian</a></li>
                             <li><a href="{{ route('/galerilanding') }}" class="nav-link">Galeri</a></li>
                             <li><a href="{{ route('/pendaftaranlanding') }}" class="nav-link">Pendaftaran</a></li>
-                            <li><a href="{{ route('/beritalanding') }}" class="nav-link">Berita</a></li>
                         </ul>
                     </nav>
 
@@ -95,7 +96,7 @@
         <div class="ftco-blocks-cover-1">
             <!-- data-stellar-background-ratio="0.5" style="background-image: url('images/hero_1.jpg')" -->
             <div class="site-section-cover overlay" data-stellar-background-ratio="0.5"
-            style="background-image: url('{{ asset('vendor/secondaryasset/images/bg_01.jpg') }}')">
+                style="background-image: url('{{ asset('vendor/secondaryasset/images/bg_01.jpg') }}')">
                 <div class="container">
                     <div class="row align-items-center ">
 
@@ -117,8 +118,7 @@
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-12 text-center">
-                        <span class="text-cursive h5 text-white d-block">Program You Like</span>
-                        <h2 class="text-white">Our Program</h2>
+                        <h2 class="text-white">Program Unggulan</h2>
                     </div>
                 </div>
                 <div class="row">
@@ -175,6 +175,14 @@
                             </div>
                         </div>
                     @endforeach
+                </div>
+                <div class="row mb-5 mt-5">
+                    <div class="col-12 text-center">
+                        <h5 class="text-white">Untuk melihat program unggulan lainnya, Silahkan dapat mengunjungi</h5>
+                        <h5 class="text-white">Youtube TK IT Little Moslem pada tombol berikut</h5>
+                        <p><a target="_blank" href="#" class="btn btn-warning mt-2 text-white">Click
+                                me to youtube program unggulan</a></p>
+                    </div>
                 </div>
             </div>
         </div>

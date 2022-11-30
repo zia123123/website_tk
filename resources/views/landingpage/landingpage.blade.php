@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Kiddy &mdash; Website Template by Colorlib</title>
+    <title>TK IT Little Moslem.sch</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -45,7 +45,7 @@
             <div class="container mb-3">
                 <div class="d-flex align-items-center">
                     <div class="site-logo mr-auto">
-                        <a href="{{ route('/') }}" style="font-size: 35px">TKIT Little Moslem<span
+                        <a href="{{ route('/') }}" style="font-size: 35px">TK IT Little Moslem<span
                                 class="text-primary">.</span></a>
                     </div>
                     <div class="site-quick-contact d-none d-lg-flex ml-auto ">
@@ -74,10 +74,11 @@
                     <nav class="site-navigation text-left mr-auto d-none d-lg-block" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto ">
                             <li class="active"><a href="{{ route('/') }}" class="nav-link">Beranda</a></li>
+                            <li><a href="{{ route('/') }}" class="nav-link">Kelas</a></li>
                             <li><a href="{{ route('/programlanding') }}" class="nav-link">Program</a></li>
+                            <li><a href="{{ route('/programlanding') }}" class="nav-link">Kegiatan Harian</a></li>
                             <li><a href="{{ route('/galerilanding') }}" class="nav-link">Galeri</a></li>
                             <li><a href="{{ route('/pendaftaranlanding') }}" class="nav-link">Pendaftaran</a></li>
-                            <li><a href="{{ route('/beritalanding') }}" class="nav-link">Berita</a></li>
                         </ul>
                     </nav>
 
@@ -118,10 +119,11 @@
                 <div class="container">
                     <div class="row align-items-center ">
 
-                        <div class="col-md-5 mt-5 pt-5">
-                            <span class="text-cursive h5 text-white">Welcome To Our Website</span>
-                            <h1 class="mb-3 font-weight-bold text-teal">KREATIF, INOVATIF,TAQWA dan AMANAH.</h1>
-                            <p>Amazing Playground for your kids</p>
+                        <div class="col-md-6 mt-5 pt-5">
+                            <span class="text-cursive h5 text-white">Selamat datang di website TK IT Little
+                                Moslem</span>
+                            <h1 class="mb-3 font-weight-bold text-teal">"KREATIF, INOVATIF, TAQWA dan AMANAH"</h1>
+                            <p>amazing playground for your kids</p>
                         </div>
 
                     </div>
@@ -133,8 +135,8 @@
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-12 text-center">
-                        <span class="text-cursive h3 text-teal d-block">Program</span>
-                        <h2 class="text-teal">Our Program</h2>
+                        <span class="text-cursive h3 text-teal d-block">Visi, Misi & Tujuan</span>
+                        {{-- <h2 class="text-teal">Our Program</h2> --}}
                     </div>
                 </div>
                 <div class="row">
@@ -168,7 +170,7 @@
                                 enim id culpa.</p>
                         </div>
                     </div> --}}
-                    @foreach ($data_program as $row)
+                    @foreach ($data_visi as $row)
                         @php
 
                             if ($row['id'] % 2 == 0) {
@@ -187,12 +189,13 @@
                         {{-- <div class="uk-width-1-10" style="background-color:{{ $color }}">
                             {{ $row['AGING'] }}</div> --}}
                         <div class="col-lg-4">
-                            <div class="{{ $color }}">
+                            <div class="{{ $color }}" style="height: 300px">
                                 <span class="wrap-icon">
                                     <span class="{{ $dataicon }}"></span>
                                 </span>
-                                <h2>{{ $row->namaprogram }}</h2>
-                                <p>{{ $row->deskripsi }}</p>
+                                <h2>{{ $row->judul }}</h2>
+                                {{-- <p>{{ substr_replace($row->content, '...', 100) }}</p> --}}
+                                <p>{{ $row->content }}</p>
                             </div>
                         </div>
                     @endforeach
@@ -200,7 +203,7 @@
             </div>
         </div>
         {{-- about us  --}}
-        <div class="site-section bg-dark">
+        <div class="site-section bg-success">
             <div class="container">
                 <div class="row">
                     @foreach ($data_about as $row)
@@ -208,18 +211,20 @@
                             <img src="{{ asset($row->filename) }}" alt="Image" class="img-fluid">
                         </div>
                         <div class="col-md-5 ml-auto pl-md-5">
-                            <span class="text-cursive h5 text-red">{{ $row->judul }}</span>
+                            <span class="text-cursive h5 text-white">{{ $row->judul }}</span>
                             <h3 class="text-white">TK Little Moslem Bojongsoang</h3>
                             <p><span class="text-white">{{ $row->content }}</span></p>
+                            <p><a target="_blank" href="#" class="btn btn-warning mt-2 text-white">Click
+                                    me to youtube profile School</a></p>
                         </div>
                     @endforeach
 
                 </div>
             </div>
         </div>
-{{-- hellow --}}
+        {{-- hellow --}}
         {{-- article list --}}
-        <div class="site-section bg-warning">
+        {{-- <div class="site-section bg-warning">
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-12 text-center">
@@ -243,7 +248,7 @@
                     @endforeach
                 </div>
             </div>
-        </div>
+        </div> --}}
         {{-- <div class="col-lg-4 mb-4 mb-lg-0">
             <div class="package text-center bg-white">
                 <span class="img-wrap"><img
@@ -267,7 +272,7 @@
             </div>
         </div> --}}
         {{-- visi misi list --}}
-        <div class="site-section">
+        {{-- <div class="site-section">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
@@ -276,8 +281,8 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque nostrum ducimus similique
                             neque debitis voluptatum vitae tempore, sapiente, nemo itaque omnis saepe ut labore quia
                             beatae nam rerum accusamus reprehenderit.</p>
-                    </div>
-                    {{-- <div class="col-md-4">
+                    </div> --}}
+        {{-- <div class="col-md-4">
                         <div class="pricing teal">
                             <span class="price">
                                 <span>$30</span>
@@ -305,7 +310,7 @@
                             <p><a href="#" class="btn btn-danger btn-custom-1 mt-4">Buy Now</a></p>
                         </div>
                     </div> --}}
-                    @foreach ($data_visi as $row)
+        {{-- @foreach ($data_visi as $row)
                         @php
                             if ($row['id'] % 3 == 0) {
                                 $color = 'pricing teal';
@@ -328,13 +333,12 @@
                                 <ul class="{{ $tail }}">
                                     <li>{{ $row->content }}</li>
                                 </ul>
-                                {{-- <p><a href="#" class="{{ $btn }}">Learn More</a></p> --}}
                             </div>
                         </div>
-                    @endforeach
-                </div>
+                    @endforeach --}}
+        {{-- </div>
             </div>
-        </div>
+        </div> --}}
 
         {{-- <div class="site-section bg-light">
             <div class="container">
