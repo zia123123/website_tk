@@ -82,7 +82,7 @@
                             <li><a href="{{ route('/pendaftaranlanding') }}" class="nav-link">Pendaftaran</a></li>
                         </ul>
                     </nav>
-
+                    {{-- test init --}}
                     <div class="top-social ml-auto">
                         <a href="#"><span class="icon-facebook text-teal"></span></a>
                     </div>
