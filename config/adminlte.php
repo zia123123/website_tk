@@ -230,11 +230,6 @@ return [
             'icon'  => 'fa fa-users',
         ],
         [
-            'text' => 'Article',
-            'url'  => '/articles',
-            'icon'  => 'fa fa-book',
-        ],
-        [
             'text' => 'Program',
             'url'  => '/programs',
             'icon'  => 'fa fa-flag',
@@ -257,6 +252,11 @@ return [
         [
             'text' => 'Kegiatan',
             'url'  => '/kegiatan',
+            'icon'  => 'fa fa-suitcase',
+        ],
+        [
+            'text' => 'kelas',
+            'url'  => '/kelas',
             'icon'  => 'fa fa-suitcase',
         ],
         [

@@ -16,7 +16,7 @@ class CreateProgrampendaftaransTable extends Migration
         Schema::create('programpendaftarans', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
-            $table->string('content');
+            $table->longText('content');
             $table->string('filename');
             $table->string('link');
             $table->timestamps();

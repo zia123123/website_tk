@@ -12,9 +12,9 @@ use App\Http\Controllers\DetailArticleController;
 use App\Http\Controllers\DetailBeritaController;
 use App\Http\Controllers\DetailGaleriController;
 use App\Http\Controllers\VisimisiController;
-
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\ProgrampendaftaranController;
+use App\Http\Controllers\KelasController;
 
 
 
@@ -66,6 +66,10 @@ Route::resource('kegiatan', \App\Http\Controllers\KegiatanController::class)
 
 Route::resource('programpendaftaran', \App\Http\Controllers\ProgrampendaftaranController::class)
 ->middleware('auth');
+
+Route::resource('kelas', \App\Http\Controllers\KelasController::class)
+->middleware('auth');
+
 
 
 

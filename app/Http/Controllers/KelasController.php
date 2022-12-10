@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Gallery;
+use App\Models\Kelas;
 use Illuminate\Http\Request;
 
-class GalleryController extends Controller
+class KelasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $gallery = Gallery::all();
-        return view('gallery.index', [
-            'gallery' => $gallery
+        $kelas = Kelas::all();
+        return view('kelas.index', [
+            'kelas' => $kelas
         ]);
     }
 
@@ -27,7 +27,7 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        return view('gallery.create');
+        return view('kelas.create');
     }
 
     /**
@@ -40,7 +40,11 @@ class GalleryController extends Controller
     {
         $request->validate([
             'judul'=>'required',
-            'deskripsi'=>'required',
+            'persyaratan'=>'required',
+            'umur'=>'required',
+            'rasio'=>'required',
+            'waktu'=>'required',
+            'hari'=>'required',
             'filename' => 'required'
           ]);
           $filename = $request->file('filename');
@@ -51,13 +55,17 @@ class GalleryController extends Controller
           $newName = uniqid('', true).'.'.$nameActExp;
           $upload = $filename->move($dist, $newName);
 
-          $gallery = new Gallery([
-            'judul' => $request->get('judul'),
-            'deskripsi' => $request->get('deskripsi'),
+          $kelas = new Kelas([
+            'judul'=> $request->get('judul'),
+            'persyaratan'=> $request->get('persyaratan'),
+            'umur'=> $request->get('umur'),
+            'rasio'=> $request->get('rasio'),
+            'waktu'=> $request->get('waktu'),
+            'hari'=> $request->get('hari'),
             'filename' => $dist.$newName
           ]);
-          $gallery->save();
-        return redirect()->route('gallery.index')
+          $kelas->save();
+        return redirect()->route('kelas.index')
             ->with('success_message', 'Berhasil menambah Data baru');
 
     }
@@ -81,11 +89,11 @@ class GalleryController extends Controller
      */
     public function edit($id)
     {
-        $gallery = Gallery::find($id);
-        if (!$gallery) return redirect()->route('gallery.index')
-            ->with('error_message', 'Data dengan id '.$id.' tidak ditemukan');
-        return view('gallery.edit', [
-            'gallery' => $gallery
+        $kelas = Kelas::find($id);
+        if (!$kelas) return redirect()->route('kelas.index')
+            ->with('error_message', 'Kelas dengan id '.$id.' tidak ditemukan');
+        return view('kelas.edit', [
+            'kelas' => $kelas
         ]);
     }
 
@@ -100,7 +108,11 @@ class GalleryController extends Controller
     {
         $request->validate([
             'judul'=>'required',
-            'deskripsi'=>'required',
+            'persyaratan'=>'required',
+            'umur'=>'required',
+            'rasio'=>'required',
+            'waktu'=>'required',
+            'hari'=>'required',
             'filename' => 'required'
           ]);
 
@@ -111,12 +123,16 @@ class GalleryController extends Controller
         $nameActExp = strtolower(end($nameExp));
         $newName = uniqid('', true).'.'.$nameActExp;
         $upload = $filename->move($dist, $newName);
-          $gallery = Gallery::find($id);
-          $gallery->judul = $request->get('judul');
-          $gallery->deskripsi = $request->get('deskripsi');
-          $gallery->filename = $dist.$newName;
-          $gallery->save();
-        return redirect()->route('gallery.index')
+          $kelas = Kelas::find($id);
+          $kelas->judul = $request->get('judul');
+          $kelas->persyaratan = $request->get('persyaratan');
+          $kelas->umur = $request->get('umur');
+          $kelas->rasio =$request->get('rasio');
+          $kelas->waktu = $request->get('waktu');
+          $kelas->hari = $request->get('hari');
+          $kelas->filename = $dist.$newName;
+          $kelas->save();
+        return redirect()->route('kelas.index')
             ->with('success_message', 'Berhasil mengubah Data');
     }
 
@@ -128,9 +144,9 @@ class GalleryController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $gallery = Gallery::find($id);
-        $gallery->delete();
-        return redirect()->route('gallery.index')
-            ->with('success_message', 'Berhasil menghapus Data');
+        $kelas = Kelas::find($id);
+        $kelas->delete();
+        return redirect()->route('kelas.index')
+            ->with('success_message', 'Berhasil menghapus kelas');
     }
 }

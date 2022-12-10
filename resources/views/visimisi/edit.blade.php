@@ -3,7 +3,7 @@
 @section('title', 'Edit User')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Edit User</h1>
+    <h1 class="m-0 text-dark">Edit Visi Misi</h1>
 @stop
 
 @section('content')
@@ -17,13 +17,13 @@
 
                         <div class="form-group">
                             <label for="exampleInputJudul">Judul</label>
-                            <input type="text" class="form-control @error('judul') is-invalid @enderror" id="exampleInputJudul" placeholder="Judul" name="judul" value="{{$article->judul ?? old('judul')}}">
+                            <input type="text" class="form-control @error('judul') is-invalid @enderror" id="exampleInputJudul" placeholder="Judul" name="judul" value="{{$visimisi->judul ?? old('judul')}}">
                             @error('judul') <span class="text-danger">{{$message}}</span> @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="exampleInputContent">Content</label>
-                            <input type="text" class="form-control @error('content') is-invalid @enderror" id="exampleInputContent" placeholder="Masukkan content" name="content" value="{{$article->content ?? old('content')}}">
+                            <textarea rows="4" class="form-control @error('content') is-invalid @enderror" id="exampleInputContent" placeholder="Masukkan deskripsi" name="content" >{{$visimisi->content ?? old('content')}}</textarea>
                             @error('content') <span class="text-danger">{{$message}}</span> @enderror
                         </div>
                 

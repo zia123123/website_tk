@@ -3,7 +3,7 @@
 @section('title', 'Tambah kegiatan')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Tambah kegiatan</h1>
+    <h1 class="m-0 text-dark">Tambah Program Pendaftaran</h1>
 @stop
 
 @section('content')
@@ -22,8 +22,8 @@
 
                         <div class="form-group">
                             <label for="exampleInputContent">Content</label>
-                            <input type="text" class="form-control @error('content') is-invalid @enderror" id="exampleInputContent" placeholder="Masukkan content" name="content" value="{{old('content')}}">
-                            @error('content') <span class="text-danger">{{$message}}</span> @enderror
+                            <textarea rows="4" type="text" class="form-control @error('content') is-invalid @enderror" id="exampleInputContent" placeholder="Masukkan content" name="content" value="{{old('content')}}">
+</textarea>                            @error('content') <span class="text-danger">{{$message}}</span> @enderror
                         </div>
                         <div class="form-group">
                             <label for="exampleInputContent">Link</label>

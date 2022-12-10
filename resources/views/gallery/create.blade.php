@@ -19,6 +19,12 @@
                             @error('judul') <span class="text-danger">{{$message}}</span> @enderror
                         </div>
                         <div class="form-group">
+                            <label for="exampleInputContent">Deskripsi</label>
+                            <textarea rows="4" type="text" class="form-control @error('content') is-invalid @enderror" id="exampleInputContent" placeholder="Masukkan content" name="deskripsi" value="{{old('deskripsi')}}">
+</textarea>
+                            @error('content') <span class="text-danger">{{$message}}</span> @enderror
+                        </div>
+                        <div class="form-group">
                         <div>
                          <input id="minute_length" type="file" name="filename" required="">
                          </div>

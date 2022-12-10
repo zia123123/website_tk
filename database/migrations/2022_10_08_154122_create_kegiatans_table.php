@@ -16,7 +16,7 @@ class CreateKegiatansTable extends Migration
         Schema::create('kegiatans', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
-            $table->string('content');
+            $table->longText('content');
             $table->string('filename');
             $table->timestamps();
         });

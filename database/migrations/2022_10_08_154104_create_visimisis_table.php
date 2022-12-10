@@ -16,7 +16,7 @@ class CreateVisimisisTable extends Migration
         Schema::create('visimisis', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
-            $table->string('content');
+            $table->longText('content');
             $table->timestamps();
         });
     }

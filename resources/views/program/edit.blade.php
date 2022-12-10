@@ -3,7 +3,7 @@
 @section('title', 'Edit User')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Edit User</h1>
+    <h1 class="m-0 text-dark">Edit Program</h1>
 @stop
 
 @section('content')
@@ -23,7 +23,7 @@
 
                         <div class="form-group">
                             <label for="exampleInputContent">Deskripsi</label>
-                            <input type="text" class="form-control @error('content') is-invalid @enderror" id="exampleInputContent" placeholder="Masukkan deskripsi" name="deskripsi" value="{{$programs->deskripsi ?? old('deskripsi')}}">
+                            <textarea rows="4" class="form-control @error('content') is-invalid @enderror" id="exampleInputContent" placeholder="Masukkan deskripsi" name="deskripsi" >{{$programs->deskripsi ?? old('deskripsi')}}</textarea>
                             @error('content') <span class="text-danger">{{$message}}</span> @enderror
                         </div>
                         <div class="form-group">

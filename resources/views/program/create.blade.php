@@ -22,7 +22,8 @@
 
                         <div class="form-group">
                             <label for="exampleInputContent">Content</label>
-                            <input type="text" class="form-control @error('content') is-invalid @enderror" id="exampleInputContent" placeholder="Masukkan content" name="deskripsi" value="{{old('deskripsi')}}">
+                            <textarea rows="4" type="text" class="form-control @error('content') is-invalid @enderror" id="exampleInputContent" placeholder="Masukkan deskripsi" name="deskripsi" value="{{old('deskripsi')}}">
+</textarea>
                             @error('content') <span class="text-danger">{{$message}}</span> @enderror
                         </div>
                         <div class="form-group">

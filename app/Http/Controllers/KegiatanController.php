@@ -83,7 +83,7 @@ class KegiatanController extends Controller
     {
         $kegiatan = Kegiatan::find($id);
         if (!$kegiatan) return redirect()->route('kegiatan.index')
-            ->with('error_message', 'User dengan id '.$id.' tidak ditemukan');
+            ->with('error_message', 'Kegiatan dengan id '.$id.' tidak ditemukan');
         return view('kegiatan.edit', [
             'kegiatan' => $kegiatan
         ]);
@@ -101,7 +101,6 @@ class KegiatanController extends Controller
         $request->validate([
             'judul'=>'required',
             'content'=> 'required',
-            'filename' => 'required'
           ]);
 
         $filename = $request->file('filename');
