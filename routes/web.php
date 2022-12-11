@@ -39,6 +39,7 @@ Route::get('/beritalanding', [LandingPageController::class, 'beritalanding'])->n
 Route::get('/detailarticlelanding/{id}', [DetailArticleController::class, 'detailarticlelanding'])->name('/detailarticlelanding');
 Route::get('/detailgalerilanding/{id}', [DetailGaleriController::class, 'detailgalerilanding'])->name('/detailgalerilanding');
 Route::get('/detailberitapage/{id}', [DetailBeritaController::class, 'detailberitapage'])->name('/detailberitapage');
+Route::get('/kelaspage', [LandingPageController::class, 'kelaslanding'])->name('/kelaslanding');
 
 Auth::routes();
 

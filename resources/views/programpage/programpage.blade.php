@@ -74,7 +74,7 @@
                     <nav class="site-navigation text-left mr-auto d-none d-lg-block" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto ">
                             <li><a href="{{ route('/') }}" class="nav-link">Beranda</a></li>
-                            <li><a href="{{ route('/') }}" class="nav-link">Kelas</a></li>
+                            <li><a href="{{ route('/kelaslanding') }}" class="nav-link">Kelas</a></li>
                             <li class="active"><a href="{{ route('/programlanding') }}" class="nav-link">Program</a>
                             </li>
                             <li><a href="{{ route('/beritalanding') }}" class="nav-link">Kegiatan Harian</a></li>
