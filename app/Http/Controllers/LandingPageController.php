@@ -10,7 +10,9 @@ use App\Models\LandingPage;
 use App\Models\Program;
 use App\Models\Programpendaftaran;
 use App\Models\Visimisi;
+use App\Models\Kelas;
 use Illuminate\Http\Request;
+
 
 class LandingPageController extends Controller
 {
@@ -41,7 +43,7 @@ class LandingPageController extends Controller
     }
     public function pendaftaranlanding()
     {
-        $data_pendaftaran = Programpendaftaran::all();
+        $data_pendaftaran = Programpendaftaran::paginate(2);
         $data_about = About::all();
         return view('/pendaftaranpage/pendaftaranpage', compact('data_pendaftaran', 'data_about'));
     }
@@ -50,6 +52,12 @@ class LandingPageController extends Controller
         $data_galeri = Gallery::all();
         $data_about = About::all();
         return view('/galeripage/galeripage', compact('data_galeri', 'data_about'));
+    }
+    public function kelaslanding()
+    {
+        $data_kelas = Kelas::paginate(3);
+        $data_about = About::all();
+        return view('/kelaspage/kelaspage', compact('data_kelas', 'data_about'));
     }
 
     /**
