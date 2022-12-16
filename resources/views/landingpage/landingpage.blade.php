@@ -214,7 +214,7 @@
                             <span class="text-cursive h5 text-white">{{ $row->judul }}</span>
                             <h3 class="text-white">TK Little Moslem Bojongsoang</h3>
                             <p><span class="text-white">{{ $row->content }}</span></p>
-                            <p><a target="_blank" href="#" class="btn btn-warning mt-2 text-white">Click
+                            <p><a target="_blank" href="https://youtu.be/6AJN_yaCH90" class="btn btn-warning mt-2 text-white">Click
                                     me to youtube profile School</a></p>
                         </div>
                     @endforeach

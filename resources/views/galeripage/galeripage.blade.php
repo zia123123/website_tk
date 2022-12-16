@@ -175,7 +175,7 @@
                                 <img src="{{ asset($row->filename) }}" alt="Image" class="img-fluid"
                                     style="width: 18rem;">
                                 <h3 class="text-danger mt-2">{{ $row->judul }}</h3>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                <p>{{ $row->deskripsi }}</p>
                                 <p><a href="/detailgalerilanding/{{ $row->id }}"
                                         class="btn btn-primary btn-custom-1 mt-4">Baca selengkapnya</a></p>
                             </div>

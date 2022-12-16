@@ -72,8 +72,8 @@
 
                     <nav class="site-navigation text-left mr-auto d-none d-lg-block" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto ">
-                            <li><a href="{{ route('/galerilanding') }}" class="btn btn-primary" style="width: 150px;"><span
-                                        class="text-white">Back</span></a>
+                            <li><a href="{{ route('/galerilanding') }}" class="btn btn-primary"
+                                    style="width: 150px;"><span class="text-white">Back</span></a>
                             </li>
                         </ul>
                     </nav>
@@ -117,10 +117,9 @@
                     </div>
                     <div class="col-md-5 ml-auto pl-md-5">
                         <span class="text-cursive h5 text-red">{{ $data_galeri->judul }}</span>
-                        <h3 class="text-black">Bring Fun Life To Your Kids</h3>
+                        <h3 class="text-black">Deskripsi</h3>
                         {{-- <p><span>{{ $data_article->content }}</span></p> --}}
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam earum
-                            libero rem maxime magnam. Similique esse ab earum, autem consectetur.</p>
+                        <p>{{ $data_galeri->deskripsi }}</p>
                     </div>
                 </div>
             </div>
