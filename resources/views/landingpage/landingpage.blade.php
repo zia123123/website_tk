@@ -130,17 +130,7 @@
                 </div>
             </div>
         </div>
-        {{-- data program --}}
-        <div class="site-section">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-12 text-center">
-                        <span class="text-cursive h3 text-teal d-block">Visi, Misi & Tujuan</span>
-                        {{-- <h2 class="text-teal">Our Program</h2> --}}
-                    </div>
-                </div>
-                <div class="row">
-                    {{-- <div class="col-lg-4">
+          {{-- <div class="col-lg-4">
                         <div class="block-2 red">
                             <span class="wrap-icon">
                                 <span class="icon-home"></span>
@@ -170,6 +160,17 @@
                                 enim id culpa.</p>
                         </div>
                     </div> --}}
+        {{-- data visi misi --}}
+        {{-- <div class="site-section">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <span class="text-cursive h3 text-teal d-block">Visi, Misi & Tujuan</span>
+
+                    </div>
+                </div>
+                <div class="row">
+
                     @foreach ($data_visi as $row)
                         @php
 
@@ -185,21 +186,112 @@
                             }
 
                         @endphp
-
-                        {{-- <div class="uk-width-1-10" style="background-color:{{ $color }}">
-                            {{ $row['AGING'] }}</div> --}}
                         <div class="col-lg-4">
                             <div class="{{ $color }}" style="height: 300px">
                                 <span class="wrap-icon">
                                     <span class="{{ $dataicon }}"></span>
                                 </span>
                                 <h2>{{ $row->judul }}</h2>
-                                {{-- <p>{{ substr_replace($row->content, '...', 100) }}</p> --}}
                                 <p>{{ $row->content }}</p>
                             </div>
                         </div>
                     @endforeach
                 </div>
+            </div>
+        </div> --}}
+        <div class="site-section bg-teal">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <h2 class="text-white"> Visi, Misi & Tujuan</h2>
+                    </div>
+                </div>
+                <div class="col">
+
+
+                    {{-- <div class="col-lg-4">
+                        <div class="package text-center bg-white">
+                            <span class="img-wrap"><img
+                                    src="{{ asset('vendor/secondaryasset/images/flaticon/svg/001-jigsaw.svg') }}"
+                                    alt="Image" class="img-fluid"></span>
+                            <h3 class="text-teal">Indoor Games</h3>
+                            <p>Lorem ipsum dolor sit amet. Consequatur aliquam, fuga maiores amet quo corporis
+                                distinctio soluta recusandae?</p>
+                            <p><a href="#" class="btn btn-primary btn-custom-1 mt-4">Learn More</a></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="package text-center bg-white">
+                            <span class="img-wrap"><img
+                                    src="{{ asset('vendor/secondaryasset/images/flaticon/svg/002-target.svg') }}"
+                                    alt="Image" class="img-fluid"></span>
+                            <h3 class="text-success">Outdoor Game and Event</h3>
+                            <p>Lorem ipsum dolor sit amet. Consequatur aliquam, fuga maiores amet quo corporis
+                                distinctio soluta recusandae?</p>
+                            <p><a href="#" class="btn btn-warning btn-custom-1 mt-4">Learn More</a></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="package text-center bg-white">
+                            <span class="img-wrap"><img
+                                    src="{{ asset('vendor/secondaryasset/images/flaticon/svg/003-mission.svg') }}"
+                                    alt="Image" class="img-fluid"></span>
+                            <h3 class="text-danger">Camping for Kids</h3>
+                            <p>Lorem ipsum dolor sit amet. Consequatur aliquam, fuga maiores amet quo corporis
+                                distinctio soluta recusandae?</p>
+                            <p><a href="#" class="btn btn-success btn-custom-1 mt-4">Learn More</a></p>
+                        </div>
+                    </div> --}}
+                    @foreach ($data_visi as $row)
+                        @php
+
+                            if ($row['id'] % 2 == 0) {
+                                $color = 'card mb-3 bg-success';
+                            } elseif ($row['id'] % 3 == 0) {
+                                $color = 'card mb-3 bg-danger';
+                            } else {
+                                $color = 'card mb-3 bg-info';
+                            }
+                        @endphp
+                        <div class="{{ $color }}">
+                            <div class="row">
+                                {{-- <div class="col-lg-4">
+                                    <div class="card-body">
+                                        <img class="card-img-top" src="{{ asset($row->filename) }}"
+                                            alt="Card image cap">
+                                    </div>
+                                </div> --}}
+                                <div class="col-lg-8">
+                                    <div class="card-body text-white">
+                                        <h3 class="card-title text-white">⭐{{ $row->judul }}⭐</h3>
+                                        <p class="card-text">✨{{ $row->content }}</p>
+                                        <p class="card-text "><small class="text-white">Last updated 3 mins
+                                                ago</small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        {{-- <div class="col-lg-4 mt-2">
+                            <div class="package text-center bg-white">
+                                <img src="{{ asset($row->filename) }}" alt="Image" class="img-fluid"
+                                    style="width: 18rem;">
+                                <h3 class="text-danger mt-2">{{ $row->namaprogram }}</h3>
+                                <p>{{ $row->deskripsi }}</p>
+                            </div>
+                        </div> --}}
+                    @endforeach
+                </div>
+                {{-- <div class="row mb-5 mt-5">
+                    <div class="col-12 text-center">
+                        <h5 class="text-white">Untuk melihat program unggulan lainnya, Silahkan dapat mengunjungi</h5>
+                        <h5 class="text-white">Youtube TK IT Little Moslem pada tombol berikut</h5>
+                        <p><a target="_blank" href="#" class="btn btn-warning mt-2 text-white">Click
+                                me to youtube program unggulan</a></p>
+                    </div>
+                </div> --}}
             </div>
         </div>
         {{-- about us  --}}
@@ -214,7 +306,8 @@
                             <span class="text-cursive h5 text-white">{{ $row->judul }}</span>
                             <h3 class="text-white">TK Little Moslem Bojongsoang</h3>
                             <p><span class="text-white">{{ $row->content }}</span></p>
-                            <p><a target="_blank" href="https://youtu.be/6AJN_yaCH90" class="btn btn-warning mt-2 text-white">Click
+                            <p><a target="_blank" href="https://youtu.be/6AJN_yaCH90"
+                                    class="btn btn-warning mt-2 text-white">Click
                                     me to youtube profile School</a></p>
                         </div>
                     @endforeach
