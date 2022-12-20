@@ -37,7 +37,7 @@ class LandingPageController extends Controller
     }
     public function beritalanding()
     {
-        $data_berita = Kegiatan::paginate(3);
+        $data_berita = Kegiatan::all();
         $data_about = About::all();
         return view('/beritapage/beritapage', compact('data_berita', 'data_about'));
     }
